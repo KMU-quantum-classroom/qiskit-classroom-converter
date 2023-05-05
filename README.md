@@ -1,4 +1,10 @@
-# qiskit-classroom-template
-Qiskit classroom Templates. 
+# qiskit-classroom-converter
+Qiskit classroom Converter
 
-Contains the default settings required by Qiskit ecosystem.
+## Support convert method
+
+* bra-ket notation -> matrix
+* bra-ket notation -> quantum circuit
+* quantum circuit -> bra-ket notation 
+* quantum circuit -> matrix 
+* matrix -> quantum circuit
