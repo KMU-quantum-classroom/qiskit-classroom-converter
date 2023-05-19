@@ -30,11 +30,15 @@ sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
 sample_converter.convert(input_value="|1>")
 ```
 
+code : [example.py](example.py)
+
 or
 
 ```shell
 qiskit-class-converter BRA_KET_TO_MATRIX "|1>"
 ```
+
+CLI : ```$ qiskit-class-converter --help```
 
 ## How to test the software
 
