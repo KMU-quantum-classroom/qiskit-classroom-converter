@@ -1,7 +1,9 @@
 """
 Bra-ket Notation to Matrix Converter
 """
-from src.interfaces.base import BaseConverter
+from loguru import logger
+
+from qiskit_class_converter.converters.base import BaseConverter
 
 
 class BraketNotationToMatrixConverter(BaseConverter):
@@ -9,4 +11,4 @@ class BraketNotationToMatrixConverter(BaseConverter):
     Converter class
     """
     def actual_convert_action(self):
-        print("bra-ket notation -> matrix")
+        logger.info("bra-ket notation -> matrix")

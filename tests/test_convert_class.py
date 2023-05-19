@@ -1,17 +1,20 @@
-"""Docstring."""
+# pylint: disable=duplicate-code
+"""
+convert class
+"""
 import unittest
 
 from qiskit import QuantumCircuit
 
-from src.interfaces.braket_notation_to_matrix \
+from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
-from src.interfaces.braket_notation_to_quantum_circuit \
+from qiskit_class_converter.converters.braket_notation_to_quantum_circuit \
     import BraketNotationToQuantumCircuitConverter
-from src.interfaces.matrix_to_quantum_circuit \
+from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
-from src.interfaces.quantum_circuit_to_braket_notation \
+from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
     import QuantumCircuitToBraketNotationConverter
-from src.interfaces.quantum_circuit_to_matrix \
+from qiskit_class_converter.converters.quantum_circuit_to_matrix \
     import QuantumCircuitToMatrixConverter
 
 

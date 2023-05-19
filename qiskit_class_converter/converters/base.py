@@ -3,6 +3,8 @@ Base Converter
 """
 from abc import ABC, abstractmethod
 
+from loguru import logger
+
 
 class BaseConverter(ABC):
     """
@@ -23,14 +25,14 @@ class BaseConverter(ABC):
         self.input_value = input_value
         self.__pre_process()
         self.actual_convert_action()
-        self.__post_process()
+        return self.__post_process()
 
     def __pre_process(self):
         """
         prepare process
         :return:
         """
-        print(self.input_value)
+        logger.info(self.input_value)
         return self.input_value
 
     @abstractmethod
@@ -47,5 +49,5 @@ class BaseConverter(ABC):
         :return:
         """
         self.result = self.input_value
-        print(self.result)
+        logger.info(self.result)
         return self.result

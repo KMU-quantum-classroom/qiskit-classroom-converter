@@ -1,7 +1,9 @@
 """
 QuantumCircuit to Bra-ket Notation Converter
 """
-from src.interfaces.base import BaseConverter
+from loguru import logger
+
+from qiskit_class_converter.converters.base import BaseConverter
 
 
 class QuantumCircuitToBraketNotationConverter(BaseConverter):
@@ -9,4 +11,4 @@ class QuantumCircuitToBraketNotationConverter(BaseConverter):
     Converter class
     """
     def actual_convert_action(self):
-        print("quantum circuit -> bra-ket notation")
+        logger.info("quantum circuit -> bra-ket notation")

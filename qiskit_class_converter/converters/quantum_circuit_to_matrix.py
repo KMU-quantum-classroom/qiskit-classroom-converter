@@ -1,7 +1,9 @@
 """
 QuantumCircuit to Matrix Converter
 """
-from src.interfaces.base import BaseConverter
+from loguru import logger
+
+from qiskit_class_converter.converters.base import BaseConverter
 
 
 class QuantumCircuitToMatrixConverter(BaseConverter):
@@ -9,4 +11,4 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
     Converter class
     """
     def actual_convert_action(self):
-        print("quantum circuit -> matrix")
+        logger.info("quantum circuit -> matrix")
