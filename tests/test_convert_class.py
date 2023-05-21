@@ -4,7 +4,9 @@ convert class
 """
 import unittest
 
+from numpy import array
 from qiskit import QuantumCircuit
+from qiskit.circuit import Instruction
 
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
@@ -25,17 +27,17 @@ class TestConvertClass(unittest.TestCase):
         """Tests run method implementation."""
         main = BraketNotationToMatrixConverter()
         input_value = "|1>"
-        main.convert(input_value=input_value)
+        result = main.convert(input_value=input_value)
         # NotImplemented
-        self.assertEqual(main.result, "|1>")
+        self.assertEqual(result, "|1>")
 
     def test_bra_ket_to_quantum_circuit(self):
         """Tests run method implementation."""
         main = BraketNotationToQuantumCircuitConverter()
         input_value = "|1>"
-        main.convert(input_value=input_value)
+        result = main.convert(input_value=input_value)
         # NotImplemented
-        self.assertEqual(main.result, "|1>")
+        self.assertEqual(result, "|1>")
 
     def test_matrix_to_quantum_circuit(self):
         """Tests run method implementation."""
@@ -46,14 +48,13 @@ class TestConvertClass(unittest.TestCase):
             [0, 0, 1, 0],
             [0, 1, 0, 0]
         ]
-        main.convert(input_value=input_value)
-        # NotImplemented
-        self.assertEqual(main.result, [
-            [1, 0, 0, 0],
-            [0, 0, 0, 1],
-            [0, 0, 1, 0],
-            [0, 1, 0, 0]
-        ])
+        expect_value = Instruction(name='unitary', num_qubits=2, num_clbits=0,
+                                   params=[array([[1. + 0.j, 0. + 0.j, 0. + 0.j, 0. + 0.j],
+                                                  [0. + 0.j, 0. + 0.j, 0. + 0.j, 1. + 0.j],
+                                                  [0. + 0.j, 0. + 0.j, 1. + 0.j, 0. + 0.j],
+                                                  [0. + 0.j, 1. + 0.j, 0. + 0.j, 0. + 0.j]])])
+        result = main.convert(input_value=input_value)
+        self.assertEqual(str(result), str(expect_value))
 
     def test_quantum_circuit_to_bra_ket(self):
         """Tests run method implementation."""
@@ -61,16 +62,20 @@ class TestConvertClass(unittest.TestCase):
         quantum_circuit = QuantumCircuit(1, 1)
         quantum_circuit.h(0)
         quantum_circuit.measure([0], [0])
-        main.convert(input_value=quantum_circuit)
+        result = main.convert(input_value=quantum_circuit)
         # NotImplemented
-        self.assertEqual(main.result, quantum_circuit)
+        self.assertEqual(result, quantum_circuit)
 
     def test_quantum_circuit_to_matrix(self):
         """Tests run method implementation."""
         main = QuantumCircuitToMatrixConverter()
-        quantum_circuit = QuantumCircuit(1, 1)
-        quantum_circuit.h(0)
-        quantum_circuit.measure([0], [0])
-        main.convert(input_value=quantum_circuit)
-        # NotImplemented
-        self.assertEqual(main.result, quantum_circuit)
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.cx(0, 1)
+        result = main.convert(input_value=quantum_circuit)
+        expect_value = array([
+            [1, 0, 0, 0],
+            [0, 0, 0, 1],
+            [0, 0, 1, 0],
+            [0, 1, 0, 0]
+        ])
+        self.assertTrue((result.astype(int) & expect_value).any())

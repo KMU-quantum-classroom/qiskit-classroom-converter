@@ -5,6 +5,8 @@ import typing
 
 from enum import Enum
 
+from qiskit import QuantumCircuit
+
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
 from qiskit_class_converter.converters.braket_notation_to_quantum_circuit \
@@ -27,34 +29,18 @@ class ConversionType(Enum):
     QC_TO_MATRIX = QuantumCircuitToMatrixConverter
     MATRIX_TO_QC = MatrixToQuantumCircuitConverter
 
-    def __str__(self):
-        return self.name
-
-    @staticmethod
-    def from_string(string_value):
-        """
-        from_string impl
-        :param string_value:
-        :return:
-        """
-        try:
-            return ConversionType[string_value]
-        except KeyError as exception:
-            raise ValueError(exception) from exception
-
 
 class ConversionService:  # pylint: disable=too-few-public-methods
     """
     Conversion Service class
     """
     def __init__(self, conversion_type: typing.Union[str, ConversionType]):
-        print(conversion_type)
         if isinstance(conversion_type, str):
             self.__conversion_object = ConversionType[conversion_type.upper()].value
         elif isinstance(conversion_type, ConversionType):
             self.__conversion_object = conversion_type.value
 
-    def convert(self, input_value):
+    def convert(self, input_value: typing.Union[list, QuantumCircuit, str]):
         """
         convert functions
         :param input_value:
