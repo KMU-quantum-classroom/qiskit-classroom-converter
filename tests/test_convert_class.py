@@ -3,6 +3,7 @@
 convert class
 """
 import unittest
+import warnings
 
 from numpy import array
 from qiskit import QuantumCircuit
@@ -59,15 +60,15 @@ class TestConvertClass(unittest.TestCase):
     def test_quantum_circuit_to_bra_ket(self):
         """Tests run method implementation."""
         main = QuantumCircuitToBraketNotationConverter()
-        quantum_circuit = QuantumCircuit(1, 1)
-        quantum_circuit.h(0)
-        quantum_circuit.measure([0], [0])
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
         result = main.convert(input_value=quantum_circuit)
-        # NotImplemented
-        self.assertEqual(result, quantum_circuit)
+        self.assertEqual(result.encode(), b" |11\\rangle")
 
     def test_quantum_circuit_to_matrix(self):
         """Tests run method implementation."""
+        warnings.filterwarnings('ignore')
         main = QuantumCircuitToMatrixConverter()
         quantum_circuit = QuantumCircuit(2, 2)
         quantum_circuit.cx(0, 1)

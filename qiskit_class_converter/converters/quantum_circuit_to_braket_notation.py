@@ -8,6 +8,9 @@ class QuantumCircuitToBraketNotationConverter(BaseConverter):
     """
     Converter class
     """
+
     def actual_convert_action(self):
         self.logger.debug("quantum circuit to bra-ket notation")
-        return self.input_value
+        self.input_value.save_statevector()
+        result = self.qiskit_aer.AerSimulator().run(self.input_value).result()
+        return result.get_statevector().draw("latex_source")

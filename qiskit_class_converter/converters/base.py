@@ -4,6 +4,7 @@ Base Converter
 from abc import ABC, abstractmethod
 
 import qiskit
+import qiskit_aer
 from loguru import logger
 
 
@@ -18,6 +19,7 @@ class BaseConverter(ABC):
         """
         self.input_value = None
         self.qiskit = qiskit
+        self.qiskit_aer = qiskit_aer
         self.logger = logger
 
     def convert(self, input_value):
