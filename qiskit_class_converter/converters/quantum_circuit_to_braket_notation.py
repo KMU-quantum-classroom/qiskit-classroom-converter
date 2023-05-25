@@ -1,6 +1,8 @@
 """
 QuantumCircuit to Bra-ket Notation Converter
 """
+from sympy.parsing.latex import parse_latex
+
 from qiskit_class_converter.converters.base import BaseConverter
 
 
@@ -13,4 +15,5 @@ class QuantumCircuitToBraketNotationConverter(BaseConverter):
         self.logger.debug("quantum circuit to bra-ket notation")
         self.input_value.save_statevector()
         result = self.qiskit_aer.AerSimulator().run(self.input_value).result()
-        return result.get_statevector().draw("latex_source")
+        source = result.get_statevector().draw("latex_source")
+        return str(parse_latex(source))

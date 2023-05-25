@@ -61,10 +61,11 @@ class TestConvertClass(unittest.TestCase):
         """Tests run method implementation."""
         main = QuantumCircuitToBraketNotationConverter()
         quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
         quantum_circuit.x(0)
         quantum_circuit.cx(0, 1)
         result = main.convert(input_value=quantum_circuit)
-        self.assertEqual(result.encode(), b" |11\\rangle")
+        self.assertEqual(result, "(sqrt(2)/2)*|0> + (sqrt(2)/2)*|11>")
 
     def test_quantum_circuit_to_matrix(self):
         """Tests run method implementation."""
