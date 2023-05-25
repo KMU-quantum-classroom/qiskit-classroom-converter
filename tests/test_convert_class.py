@@ -80,4 +80,4 @@ class TestConvertClass(unittest.TestCase):
             [0, 0, 1, 0],
             [0, 1, 0, 0]
         ])
-        self.assertTrue((result.astype(int) & expect_value).any())
+        self.assertTrue((result["result"].astype(int) & expect_value).any())
