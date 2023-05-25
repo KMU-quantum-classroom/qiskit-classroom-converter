@@ -1,7 +1,8 @@
 import warnings
 
 from loguru import logger
-from qiskit import QuantumCircuit
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
 
 from qiskit_class_converter import ConversionService, ConversionType
 
@@ -16,9 +17,15 @@ input_value = [
 ]
 sample_converter = ConversionService(conversion_type="MATRIX_TO_QC")
 result = sample_converter.convert(input_value=input_value)
-quantum_circuit = QuantumCircuit(2)
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.x(0)
 quantum_circuit.append(result, [0, 1])
+quantum_circuit.measure(range(2), range(2))
+backend = AerSimulator()
+qc_compiled = transpile(quantum_circuit, backend)
+counts = backend.run(qc_compiled).result().get_counts()
 logger.info("\n" + str(quantum_circuit))
+logger.info(counts)
 
 # quantum circuit to matrix
 quantum_circuit = QuantumCircuit(2, 2)
@@ -29,9 +36,19 @@ logger.info("\n" + str(result.astype(int)))
 
 # quantum circuit to bra-ket
 quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.h(0)
 quantum_circuit.x(0)
 quantum_circuit.cx(0, 1)
 sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET")
+result = sample_converter.convert(input_value=quantum_circuit)
+logger.info(result)
+
+# using options
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.h(0)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET", option={"print": "raw"})
 result = sample_converter.convert(input_value=quantum_circuit)
 logger.info(result)
 

@@ -13,10 +13,13 @@ class BaseConverter(ABC):
     Converter class
     """
 
-    def __init__(self):
+    def __init__(self, option=None):
         """
         BaseConverter init value
         """
+        if option is None:
+            option = {}
+        self.option = option
         self.input_value = None
         self.qiskit = qiskit
         self.qiskit_aer = qiskit_aer

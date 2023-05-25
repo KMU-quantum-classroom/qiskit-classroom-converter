@@ -34,7 +34,10 @@ class ConversionService:  # pylint: disable=too-few-public-methods
     """
     Conversion Service class
     """
-    def __init__(self, conversion_type: typing.Union[str, ConversionType]):
+    def __init__(self, conversion_type: typing.Union[str, ConversionType], option=None):
+        if option is None:
+            self.option = {}
+        self.option = option
         if isinstance(conversion_type, str):
             self.__conversion_object = ConversionType[conversion_type.upper()].value
         elif isinstance(conversion_type, ConversionType):
@@ -46,5 +49,5 @@ class ConversionService:  # pylint: disable=too-few-public-methods
         :param input_value:
         :return:
         """
-        convert = self.__conversion_object().convert(input_value)
+        convert = self.__conversion_object(self.option).convert(input_value)
         return convert
