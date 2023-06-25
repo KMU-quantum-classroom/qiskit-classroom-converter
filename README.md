@@ -14,7 +14,8 @@ Qiskit classroom Converter
 ## Installation
 
 ```bash
-python setup.py install 
+python3 -m build
+pip install .
 ```
 
 ## Dependencies
@@ -24,21 +25,17 @@ python setup.py install
 ## Usage
 
 ```python
+from qiskit import QuantumCircuit
 from qiskit_class_converter import ConversionService
-
-sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
-sample_converter.convert(input_value="|1>")
+# quantum circuit to matrix
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_MATRIX")
+result = sample_converter.convert(input_value=quantum_circuit)
 ```
 
 code : [example.py](example.py)
-
-or
-
-```shell
-qiskit-class-converter BRA_KET_TO_MATRIX "|1>"
-```
-
-CLI : ```$ qiskit-class-converter --help```
 
 ## How to test the software
 

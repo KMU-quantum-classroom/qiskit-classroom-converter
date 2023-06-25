@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qiskit-classroom-converter"
+version = "0.0.1"
+authors = [
+    { name = "KMU-quantum-classroom" },
+]
+description = "extend the Qiskit classroom applications."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    #    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "qiskit==0.43.0",
+    "loguru==0.7.0",
+    "sympy==1.12",
+    "antlr4-python3-runtime==4.11"
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage==7.2.5",
+    "pylint==2.17.3",
+    "tox==4.5.1",
+    "build==0.10.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/KMU-quantum-classroom/qiskit-classroom-converter"
+"Bug Tracker" = "https://github.com/KMU-quantum-classroom/qiskit-classroom-converter/issues"
