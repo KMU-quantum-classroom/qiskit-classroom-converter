@@ -5,10 +5,10 @@ converter service class
 import unittest
 
 from qiskit import QuantumCircuit
-from qiskit_class_converter.converters.matrix_to_quantum_circuit \
-    import MatrixToQuantumCircuitConverter
 
 from qiskit_class_converter import ConversionService, ConversionType
+from qiskit_class_converter.converters.matrix_to_quantum_circuit \
+    import MatrixToQuantumCircuitConverter
 
 
 class TestConverterServiceClass(unittest.TestCase):
@@ -44,13 +44,69 @@ class TestConverterServiceClass(unittest.TestCase):
 
     def test_quantum_circuit_to_bra_ket_service(self):
         """Tests run Service method implementation."""
-        quantum_circuit = QuantumCircuit(1, 1)
+        quantum_circuit = QuantumCircuit(2, 2)
         quantum_circuit.h(0)
-        quantum_circuit.measure([0], [0])
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
         system = ConversionService(conversion_type="QC_TO_BRA_KET")
         result = system.convert(input_value=quantum_circuit)
-        # NotImplemented
-        self.assertIsNotNone(result)
+        self.assertEqual(result, "(sqrt(2)/2)*|0> + (sqrt(2)/2)*|11>")
+
+    def test_quantum_circuit_to_raw_bra_ket_service(self):
+        """Tests run Service method implementation."""
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
+        system = ConversionService(conversion_type="QC_TO_BRA_KET", option={"print": "raw"})
+        result = system.convert(input_value=quantum_circuit)
+        self.assertEqual(result, r"\frac{\sqrt{2}}{2} |00\rangle+\frac{\sqrt{2}}{2} |11\rangle")
+
+    def test_quantum_circuit_to_simplify_bra_ket_service(self):
+        """Tests run Service method implementation."""
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
+        system = ConversionService(conversion_type="QC_TO_BRA_KET",
+                                   option={"expression": "simplify"})
+        result = system.convert(input_value=quantum_circuit)
+        self.assertEqual(result, "sqrt(2)*(|0> + |11>)/2")
+
+    def test_quantum_circuit_to_expand_bra_ket_service(self):
+        """Tests run Service method implementation."""
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
+        system = ConversionService(conversion_type="QC_TO_BRA_KET",
+                                   option={"expression": "expand"})
+        result = system.convert(input_value=quantum_circuit)
+        self.assertEqual(result, "sqrt(2)*|0>/2 + sqrt(2)*|11>/2")
+
+    def test_quantum_circuit_to_simplify_raw_bra_ket_service(self):
+        """Tests run Service method implementation."""
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
+        system = ConversionService(conversion_type="QC_TO_BRA_KET",
+                                   option={"expression": "simplify", "print": "raw"})
+        result = system.convert(input_value=quantum_circuit)
+        self.assertEqual(result, r"\frac{\sqrt{2} \left({\left|0\right\rangle } + "
+                                 r"{\left|11\right\rangle }\right)}{2}")
+
+    def test_quantum_circuit_to_expand_raw_bra_ket_service(self):
+        """Tests run Service method implementation."""
+        quantum_circuit = QuantumCircuit(2, 2)
+        quantum_circuit.h(0)
+        quantum_circuit.x(0)
+        quantum_circuit.cx(0, 1)
+        system = ConversionService(conversion_type="QC_TO_BRA_KET",
+                                   option={"expression": "expand", "print": "raw"})
+        result = system.convert(input_value=quantum_circuit)
+        self.assertEqual(result, r"\frac{\sqrt{2} {\left|0\right\rangle }}{2} + "
+                                 r"\frac{\sqrt{2} {\left|11\right\rangle }}{2}")
 
     def test_quantum_circuit_to_matrix_service(self):
         """Tests run Service method implementation."""

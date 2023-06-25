@@ -15,7 +15,7 @@ input_value = [
     [0, 0, 1, 0],
     [0, 1, 0, 0]
 ]
-sample_converter = ConversionService(conversion_type="MATRIX_TO_QC")
+sample_converter = ConversionService(conversion_type="MATRIX_TO_QC", option={"label": "CX gate"})
 result = sample_converter.convert(input_value=input_value)
 quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.x(0)
@@ -43,6 +43,24 @@ quantum_circuit.h(0)
 quantum_circuit.x(0)
 quantum_circuit.cx(0, 1)
 sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET")
+result = sample_converter.convert(input_value=quantum_circuit)
+logger.info(result)
+
+# quantum circuit to simplify bra-ket
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.h(0)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simplify"})
+result = sample_converter.convert(input_value=quantum_circuit)
+logger.info(result)
+
+# quantum circuit to expand bra-ket
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.h(0)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "expand"})
 result = sample_converter.convert(input_value=quantum_circuit)
 logger.info(result)
 
