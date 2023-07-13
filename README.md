@@ -11,6 +11,44 @@ Qiskit classroom Converter
 
 ---
 
+## Options
+
+| convert method    | option                                   |
+|-------------------|------------------------------------------|
+| QC_TO_BRA_KET     | expression{simplify, expand}, print{raw} |
+| QC_TO_MATRIX      | -                                        |
+| MATRIX_TO_QC      | label{str}                               |
+| BRA_KET_TO_MATRIX | -                                        |
+| BRA_KET_TO_QC     | -                                        |
+
+```python
+from qiskit_class_converter import ConversionService
+
+ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simplify"})
+```
+
+## Required data
+
+* MATRIX_TO_QC
+  * User's QuantumCircuit object
+
+```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+input_value = [
+    [1, 0, 0, 0],
+    [0, 0, 0, 1],
+    [0, 0, 1, 0],
+    [0, 1, 0, 0]
+]
+sample_converter = ConversionService(conversion_type="MATRIX_TO_QC")
+result = sample_converter.convert(input_value=input_value)
+# using user's QuantumCircuit object
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.append(result, [0, 1])
+```
+
 ## Installation
 
 ```bash
