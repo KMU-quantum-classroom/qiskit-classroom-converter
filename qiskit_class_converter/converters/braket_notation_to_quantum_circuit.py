@@ -8,6 +8,7 @@ class BraketNotationToQuantumCircuitConverter(BaseConverter):
     """
     Converter class
     """
+    
     def actual_convert_action(self):
         self.logger.debug("bra-ket notation to quantum circuit")
         return self.input_value
