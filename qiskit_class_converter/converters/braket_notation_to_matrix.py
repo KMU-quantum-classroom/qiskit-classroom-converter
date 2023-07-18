@@ -17,14 +17,13 @@ class BraketNotationToMatrixConverter(BaseConverter):
     # bra-ket 검출 정규 표현식
     regex_pattern = r"(?P<braket>[<][01]+[|][01]+[>])|(?P<bra>[<][01]+[|])|(?P<ket>[|][01]+[>])"
 
-    def parse_braket(self, expr_str):
+    def create_qubits(self, expr_symbols):
         """
-        detect bra-ket expression to sympy symbols
+        create qubits using symbols
         :return:
         """
-        extr = re.compile("[01]+")
-        expr_symbols = re.findall(self.regex_pattern, expr_str)
 
+        extr = re.compile("[01]+")
         local_dict_str = {}
         local_dict ={}
 
@@ -44,14 +43,24 @@ class BraketNotationToMatrixConverter(BaseConverter):
                 local_dict[chr(dict_num)] = Qubit(extr.search(val).group())
             dict_num += 1
 
-        for key in local_dict.keys():
+        return local_dict_str, local_dict
+
+    def parse_braket(self, expr_str):
+        """
+        detect bra-ket expression to sympy symbols
+        :return:
+        """
+        expr_symbols = re.findall(self.regex_pattern, expr_str)
+
+        local_dict_str, local_dict = self.create_qubits(expr_symbols)
+
+        for key in local_dict:
             expr_str = expr_str.replace(local_dict_str[key], key,1)
         expr = parse_expr(expr_str, evaluate=False, transformations='all', local_dict=local_dict)
         return expr
 
     def actual_convert_action(self):
         self.logger.debug("bra-ket notation to matrix")
-        self.logger.info(self.input_value)
         expr = self.parse_braket(self.input_value)
         self.logger.info(expr)
         self.logger.info(measure_all(expr))
