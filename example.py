@@ -75,11 +75,11 @@ logger.info(result)
 
 # Work In progress
 sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
-sample_converter.convert(input_value=result)
+sample_converter.convert(input_value="|01>")
 
 # sample_converter = ConversionService(conversion_type="BRA_KET_TO_QC")
 # sample_converter.convert(input_value="|1>")
 
 # # Alternatives (using Enum)
-# sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX)
-# sample_converter.convert(input_value="|1>")
+sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX)
+sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
