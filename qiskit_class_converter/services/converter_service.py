@@ -19,7 +19,6 @@ converter service
 #  under the License.
 
 import typing
-
 from enum import Enum
 
 from qiskit import QuantumCircuit
@@ -40,18 +39,72 @@ class ConversionType(Enum):
     """
     Conversion Type
     """
-    BRA_KET_TO_MATRIX = BraketNotationToMatrixConverter
-    BRA_KET_TO_QC = BraketNotationToQuantumCircuitConverter
     QC_TO_BRA_KET = QuantumCircuitToBraketNotationConverter
+    """```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET")
+result = sample_converter.convert(input_value=quantum_circuit)
+```"""
     QC_TO_MATRIX = QuantumCircuitToMatrixConverter
+    """```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_MATRIX")
+result = sample_converter.convert(input_value=quantum_circuit)
+```"""
     MATRIX_TO_QC = MatrixToQuantumCircuitConverter
+    """```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+input_value = [
+    [1, 0, 0, 0],
+    [0, 0, 0, 1],
+    [0, 0, 1, 0],
+    [0, 1, 0, 0]
+]
+sample_converter = ConversionService(conversion_type="MATRIX_TO_QC")
+result = sample_converter.convert(input_value=input_value)
+# using user's QuantumCircuit object
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.append(result, [0, 1])
+```"""
+    BRA_KET_TO_MATRIX = BraketNotationToMatrixConverter
+    """
+Not Implements
+"""
+    BRA_KET_TO_QC = BraketNotationToQuantumCircuitConverter
+    """
+Not Implements
+"""
 
 
 class ConversionService:  # pylint: disable=too-few-public-methods
     """
     Conversion Service class
+
+```python
+from qiskit_class_converter import ConversionService
+
+ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simplify"})
+```
     """
+
     def __init__(self, conversion_type: typing.Union[str, ConversionType], option=None):
+        """
+        init function
+        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX, BRA_KET_TO_QC
+        :param option: See the Options table in this article.
+        """
         if option is None:
             self.option = {}
         self.option = option
@@ -63,8 +116,12 @@ class ConversionService:  # pylint: disable=too-few-public-methods
     def convert(self, input_value: typing.Union[list, QuantumCircuit, str]):
         """
         convert functions
-        :param input_value:
-        :return:
+
+            result = sample_converter.convert(input_value=quantum_circuit)
+            logger.info(result)
+
+        :param input_value: QuantumCircuit or MATRIX or BRA_KET String
+        :return: Converted result
         """
         convert = self.__conversion_object(self.option).convert(input_value)
         return convert

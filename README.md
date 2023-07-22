@@ -3,11 +3,13 @@ Qiskit classroom Converter
 
 ## Support convert method
 
-* bra-ket notation -> matrix
-* bra-ket notation -> quantum circuit
-* quantum circuit -> bra-ket notation 
-* quantum circuit -> matrix 
-* matrix -> quantum circuit
+* quantum circuit to bra-ket notation
+* quantum circuit to matrix
+* matrix to quantum circuit
+* ~~bra-ket notation to matrix~~
+  * Not implements
+* ~~bra-ket notation to quantum circuit~~
+  * Not implements
 
 ---
 
@@ -49,11 +51,10 @@ quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.append(result, [0, 1])
 ```
 
-## Installation
+## How to Install
 
 ```bash
-python3 -m build
-pip install .
+pip install qiskit-classroom-converter
 ```
 
 ## Dependencies
@@ -86,8 +87,3 @@ or
 ```shell
 tox
 ```
-
-----
-
-[//]: # (## Open source licensing info)
-[//]: # (* [LICENSE]&#40;LICENSE&#41;)
