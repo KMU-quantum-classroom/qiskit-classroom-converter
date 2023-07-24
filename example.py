@@ -77,6 +77,9 @@ logger.info(result)
 sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
 sample_converter.convert(input_value="|01>")
 
+sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
+sample_converter.convert(input_value="<00|01>")
+
 # sample_converter = ConversionService(conversion_type="BRA_KET_TO_QC")
 # sample_converter.convert(input_value="|1>")
 
