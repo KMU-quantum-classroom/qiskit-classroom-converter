@@ -99,7 +99,6 @@ class BraketNotationToMatrixConverter(BaseConverter):
     def actual_convert_action(self):
         self.logger.debug("bra-ket notation to matrix")
         expr = self.parse_braket(self.input_value)
-        # expr = self.parse_braket("|01><11|")
         self.logger.info(expr)
         return expr
     

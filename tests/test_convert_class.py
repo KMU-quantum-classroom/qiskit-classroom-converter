@@ -8,6 +8,7 @@ import warnings
 from numpy import array
 from qiskit import QuantumCircuit
 from qiskit.circuit import Instruction
+from sympy.physics.quantum.qubit import Qubit
 
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
@@ -27,10 +28,10 @@ class TestConvertClass(unittest.TestCase):
     def test_bra_ket_to_matrix(self):
         """Tests run method implementation."""
         main = BraketNotationToMatrixConverter()
+        symbol = Qubit('1')
         input_value = "|1>"
         result = main.convert(input_value=input_value)
-        # NotImplemented
-        self.assertEqual(result, "|1>")
+        self.assertEqual(result, symbol)
 
     def test_bra_ket_to_quantum_circuit(self):
         """Tests run method implementation."""

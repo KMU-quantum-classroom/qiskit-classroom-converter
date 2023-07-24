@@ -5,7 +5,6 @@ converter service class
 import unittest
 
 from qiskit import QuantumCircuit
-
 from qiskit_class_converter import ConversionService, ConversionType
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
