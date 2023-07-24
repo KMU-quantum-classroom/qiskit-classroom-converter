@@ -15,7 +15,8 @@ class BraketNotationToMatrixConverter(BaseConverter):
     """
 
     # bra-ket regex
-    regex_pattern = r"(?P<braket>[<][01]+[|][01]+[>])|(?P<ketbra>[|][01]+[>][<][01]+[|])|(?P<bra>[<][01]+[|])|(?P<ket>[|][01]+[>])"
+    regex_pattern = r"(?P<braket>[<][01]+[|][01]+[>])|(?P<ketbra>[|][01]+[>][<][01]+[|])|\
+                    (?P<bra>[<][01]+[|])|(?P<ket>[|][01]+[>])"
     extr = re.compile("[01]+")
 
     def make_pair(self, symbol, reverse = False):
