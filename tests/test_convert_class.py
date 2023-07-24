@@ -9,6 +9,9 @@ from numpy import array
 from qiskit import QuantumCircuit
 from qiskit.circuit import Instruction
 from sympy.physics.quantum.qubit import Qubit
+from sympy import sqrt
+from sympy.physics.quantum import represent
+
 
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
@@ -28,10 +31,10 @@ class TestConvertClass(unittest.TestCase):
     def test_bra_ket_to_matrix(self):
         """Tests run method implementation."""
         main = BraketNotationToMatrixConverter()
-        symbol = Qubit('1')
-        input_value = "|1>"
+        symbol = 1/sqrt(2)*(Qubit('00')+Qubit('11'))
+        input_value = "sqrt(2)*|00>/2+sqrt(2)*|11>/2"
         result = main.convert(input_value=input_value)
-        self.assertEqual(result, symbol)
+        self.assertEqual(represent(result), represent(symbol))
 
     def test_bra_ket_to_quantum_circuit(self):
         """Tests run method implementation."""
