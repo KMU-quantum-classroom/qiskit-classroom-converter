@@ -35,7 +35,7 @@ class BraketNotationToMatrixConverter(BaseConverter):
 
         return exp1 * exp2
 
-    def make_qubit(self, symbol, isDagger = False):
+    def make_qubit(self, symbol, is_dagger = False):
         """
         make qubit expression
         :return:
@@ -43,7 +43,7 @@ class BraketNotationToMatrixConverter(BaseConverter):
 
         temp = self.extr.search(symbol).group()
         result = Qubit(temp)
-        if isDagger :
+        if is_dagger :
             result = Dagger(result)
 
         return result
@@ -67,10 +67,10 @@ class BraketNotationToMatrixConverter(BaseConverter):
                 qubit = self.make_pair(val)
             elif symbol[1] != "": #ket-bra
                 val = symbol[1]
-                qubit = self.make_pair(val)
+                qubit = self.make_pair(val, reverse = True)
             elif symbol[2] != "": #bra
                 val = symbol[2]
-                qubit = self.make_qubit(val, isDagger = True)
+                qubit = self.make_qubit(val, is_dagger = True)
             elif symbol[3] != "": #ket
                 val = symbol[3]
                 qubit = self.make_qubit(val)
