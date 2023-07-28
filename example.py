@@ -90,10 +90,6 @@ sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET", option={"p
 result = sample_converter.convert(input_value=quantum_circuit)
 logger.info(result)
 
-# Work In progress
-sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
-sample_converter.convert(input_value="|01>")
-
 sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
 sample_converter.convert(input_value="<00|01>")
 

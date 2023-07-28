@@ -77,9 +77,13 @@ quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.append(result, [0, 1])
 ```"""
     BRA_KET_TO_MATRIX = BraketNotationToMatrixConverter
-    """
-Not Implements
-"""
+    """```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
+sample_converter.convert(input_value="|01>")
+```"""
 
 
 class ConversionService:  # pylint: disable=too-few-public-methods
