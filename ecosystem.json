@@ -1,0 +1,29 @@
+{
+  "dependencies_files": [
+    "requirements.txt",
+    "requirements-dev.txt"
+  ],
+  "extra_dependencies": [
+  "qiskit-aer==0.12.1",
+  "coverage==7.2.7",
+  "pylint==2.17.4",
+  "tox==4.6.3",
+  "build==0.10.0",
+  "pdoc==14.0.0"
+  ],
+  "language": {
+    "name": "python",
+    "versions": ["3.9"]
+  },
+  "tests_command": [
+    "python -m unittest -v"
+  ],
+  "styles_check_command": [
+    "pylint -rn qiskit_class_converter tests"
+  ],
+  "coverages_check_command": [
+    "coverage3 erase",
+    "coverage3 run --source qiskit_class_converter -m unittest discover",
+    "coverage3 report --fail-under=80"
+  ]
+}

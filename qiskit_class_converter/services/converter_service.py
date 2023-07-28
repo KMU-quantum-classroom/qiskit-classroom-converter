@@ -100,7 +100,7 @@ ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simpli
     def __init__(self, conversion_type: typing.Union[str, ConversionType], option=None):
         """
         init function
-        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX, BRA_KET_TO_QC
+        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX
         :param option: See the Options table in this article.
         """
         if option is None:

@@ -28,7 +28,8 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
 
     def actual_convert_action(self):
         self.logger.debug("matrix to quantum circuit")
-        gate = self.qiskit.extensions.UnitaryGate(self.input_value) # parse by unitary circuit. can't describe what circuit is.
+        gate = self.qiskit.extensions.UnitaryGate(self.input_value)
+        # parse by unitary circuit. can't describe what circuit is.
         if self.option.get("label", False):
             gate.label = self.option.get("label", "")
         else:

@@ -45,4 +45,4 @@ pip install qiskit-classroom-converter
 
 from .services.converter_service import ConversionService, ConversionType
 
-__all__ = [ConversionService, ConversionType]
+__all__ = ["ConversionService", "ConversionType"]

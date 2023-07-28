@@ -179,7 +179,7 @@ qiskit_class_converter    </h1>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="kn">from</span> <span class="nn">.services.converter_service</span> <span class="kn">import</span> <span class="n">ConversionService</span><span class="p">,</span> <span class="n">ConversionType</span>
 </span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">ConversionService</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">]</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ConversionService&quot;</span><span class="p">,</span> <span class="s2">&quot;ConversionType&quot;</span><span class="p">]</span>
 </span></pre></div>
 
 
@@ -209,7 +209,7 @@ qiskit_class_converter    </h1>
 </span><span id="ConversionService-101"><a href="#ConversionService-101"><span class="linenos">101</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </span><span id="ConversionService-102"><a href="#ConversionService-102"><span class="linenos">102</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="ConversionService-103"><a href="#ConversionService-103"><span class="linenos">103</span></a><span class="sd">        init function</span>
-</span><span id="ConversionService-104"><a href="#ConversionService-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX, BRA_KET_TO_QC</span>
+</span><span id="ConversionService-104"><a href="#ConversionService-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
 </span><span id="ConversionService-105"><a href="#ConversionService-105"><span class="linenos">105</span></a><span class="sd">        :param option: See the Options table in this article.</span>
 </span><span id="ConversionService-106"><a href="#ConversionService-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="ConversionService-107"><a href="#ConversionService-107"><span class="linenos">107</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -259,7 +259,7 @@ qiskit_class_converter    </h1>
             <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService.__init__-101"><a href="#ConversionService.__init__-101"><span class="linenos">101</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </span><span id="ConversionService.__init__-102"><a href="#ConversionService.__init__-102"><span class="linenos">102</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="ConversionService.__init__-103"><a href="#ConversionService.__init__-103"><span class="linenos">103</span></a><span class="sd">        init function</span>
-</span><span id="ConversionService.__init__-104"><a href="#ConversionService.__init__-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX, BRA_KET_TO_QC</span>
+</span><span id="ConversionService.__init__-104"><a href="#ConversionService.__init__-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
 </span><span id="ConversionService.__init__-105"><a href="#ConversionService.__init__-105"><span class="linenos">105</span></a><span class="sd">        :param option: See the Options table in this article.</span>
 </span><span id="ConversionService.__init__-106"><a href="#ConversionService.__init__-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="ConversionService.__init__-107"><a href="#ConversionService.__init__-107"><span class="linenos">107</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -277,7 +277,7 @@ qiskit_class_converter    </h1>
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>conversion_type</strong>:   QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX, BRA_KET_TO_QC</li>
+<li><strong>conversion_type</strong>:   QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</li>
 <li><strong>option</strong>:  See the Options table in this article.</li>
 </ul>
 </div>
