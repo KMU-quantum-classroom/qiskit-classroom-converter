@@ -35,7 +35,6 @@ class TestConverterServiceClass(unittest.TestCase):
         input_value = "|1>"
         system = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
         result = system.convert(input_value=input_value)
-        # NotImplemented
         self.assertIsNotNone(result)
 
     def test_bra_ket_to_quantum_circuit_service(self):

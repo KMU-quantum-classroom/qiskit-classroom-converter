@@ -1,10 +1,6 @@
 """
 Bra-ket Notation to Matrix Converter
 """
-import re
-from sympy.parsing.sympy_parser import parse_expr
-from sympy.physics.quantum.dagger import Dagger
-from sympy.physics.quantum.qubit import Qubit #, measure_all
 # from sympy.physics.quantum.represent import represent
 #  Licensed to the Apache Software Foundation (ASF) under one
 #  or more contributor license agreements.  See the NOTICE file
@@ -22,6 +18,11 @@ from sympy.physics.quantum.qubit import Qubit #, measure_all
 #  KIND, either express or implied.  See the License for the
 #  specific language governing permissions and limitations
 #  under the License.
+
+import re
+from sympy.parsing.sympy_parser import parse_expr
+from sympy.physics.quantum.dagger import Dagger
+from sympy.physics.quantum.qubit import Qubit #, measure_all
 
 from qiskit_class_converter.converters.base import BaseConverter
 
