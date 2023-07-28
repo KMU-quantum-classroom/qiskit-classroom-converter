@@ -6,10 +6,7 @@ Qiskit classroom Converter
 * quantum circuit to bra-ket notation
 * quantum circuit to matrix
 * matrix to quantum circuit
-* ~~bra-ket notation to matrix~~
-  * Not implements
-* ~~bra-ket notation to quantum circuit~~
-  * Not implements
+* bra-ket notation to matrix
 
 ---
 
@@ -21,7 +18,6 @@ Qiskit classroom Converter
 | QC_TO_MATRIX      | -                                        |
 | MATRIX_TO_QC      | label{str}                               |
 | BRA_KET_TO_MATRIX | -                                        |
-| BRA_KET_TO_QC     | -                                        |
 
 ```python
 from qiskit_class_converter import ConversionService
