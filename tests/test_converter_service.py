@@ -37,14 +37,6 @@ class TestConverterServiceClass(unittest.TestCase):
         result = system.convert(input_value=input_value)
         self.assertIsNotNone(result)
 
-    def test_bra_ket_to_quantum_circuit_service(self):
-        """Tests run Service method implementation."""
-        input_value = "|1>"
-        system = ConversionService(conversion_type="BRA_KET_TO_QC")
-        result = system.convert(input_value=input_value)
-        # NotImplemented
-        self.assertIsNotNone(result)
-
     def test_matrix_to_quantum_circuit_service(self):
         """Tests run Service method implementation."""
         input_value = [

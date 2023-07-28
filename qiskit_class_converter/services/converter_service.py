@@ -25,8 +25,6 @@ from qiskit import QuantumCircuit
 
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
-from qiskit_class_converter.converters.braket_notation_to_quantum_circuit \
-    import BraketNotationToQuantumCircuitConverter
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
 from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
@@ -79,10 +77,6 @@ quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.append(result, [0, 1])
 ```"""
     BRA_KET_TO_MATRIX = BraketNotationToMatrixConverter
-    """
-Not Implements
-"""
-    BRA_KET_TO_QC = BraketNotationToQuantumCircuitConverter
     """
 Not Implements
 """

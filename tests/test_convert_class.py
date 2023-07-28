@@ -32,8 +32,6 @@ from sympy.physics.quantum import represent
 
 from qiskit_class_converter.converters.braket_notation_to_matrix \
     import BraketNotationToMatrixConverter
-from qiskit_class_converter.converters.braket_notation_to_quantum_circuit \
-    import BraketNotationToQuantumCircuitConverter
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
 from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
@@ -52,14 +50,6 @@ class TestConvertClass(unittest.TestCase):
         input_value = "sqrt(2)*|00>/2+sqrt(2)*|11>/2"
         result = main.convert(input_value=input_value)
         self.assertEqual(represent(result), represent(symbol))
-
-    def test_bra_ket_to_quantum_circuit(self):
-        """Tests run method implementation."""
-        main = BraketNotationToQuantumCircuitConverter()
-        input_value = "|1>"
-        result = main.convert(input_value=input_value)
-        # NotImplemented
-        self.assertEqual(result, "|1>")
 
     def test_matrix_to_quantum_circuit(self):
         """Tests run method implementation."""
