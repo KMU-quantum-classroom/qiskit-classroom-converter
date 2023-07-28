@@ -1,0 +1,1 @@
+pdoc ./qiskit_class_converter -o ./docs

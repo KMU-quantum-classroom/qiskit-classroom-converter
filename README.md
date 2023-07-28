@@ -3,19 +3,58 @@ Qiskit classroom Converter
 
 ## Support convert method
 
-* bra-ket notation -> matrix
-* bra-ket notation -> quantum circuit
-* quantum circuit -> bra-ket notation 
-* quantum circuit -> matrix 
-* matrix -> quantum circuit
+* quantum circuit to bra-ket notation
+* quantum circuit to matrix
+* matrix to quantum circuit
+* ~~bra-ket notation to matrix~~
+  * Not implements
+* ~~bra-ket notation to quantum circuit~~
+  * Not implements
 
 ---
 
-## Installation
+## Options
+
+| convert method    | option                                   |
+|-------------------|------------------------------------------|
+| QC_TO_BRA_KET     | expression{simplify, expand}, print{raw} |
+| QC_TO_MATRIX      | -                                        |
+| MATRIX_TO_QC      | label{str}                               |
+| BRA_KET_TO_MATRIX | -                                        |
+| BRA_KET_TO_QC     | -                                        |
+
+```python
+from qiskit_class_converter import ConversionService
+
+ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simplify"})
+```
+
+## Required data
+
+* MATRIX_TO_QC
+  * User's QuantumCircuit object
+
+```python
+from qiskit import QuantumCircuit
+from qiskit_class_converter import ConversionService
+
+input_value = [
+    [1, 0, 0, 0],
+    [0, 0, 0, 1],
+    [0, 0, 1, 0],
+    [0, 1, 0, 0]
+]
+sample_converter = ConversionService(conversion_type="MATRIX_TO_QC")
+result = sample_converter.convert(input_value=input_value)
+# using user's QuantumCircuit object
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.append(result, [0, 1])
+```
+
+## How to Install
 
 ```bash
-python3 -m build
-pip install .
+pip install qiskit-classroom-converter
 ```
 
 ## Dependencies
@@ -48,8 +87,3 @@ or
 ```shell
 tox
 ```
-
-----
-
-[//]: # (## Open source licensing info)
-[//]: # (* [LICENSE]&#40;LICENSE&#41;)
