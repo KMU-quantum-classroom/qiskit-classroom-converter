@@ -6,6 +6,7 @@ Fix:
 
 - Preventing automatic discovery in python setuptools.
   - https://setuptools.pypa.io/en/latest/history.html#v61-0-0
+- Optimize Python Package
 
 ## 0.0.2 (2023-07-30)
 
