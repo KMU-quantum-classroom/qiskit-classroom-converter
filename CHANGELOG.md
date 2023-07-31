@@ -1,5 +1,12 @@
 # CHANGELOG.md
 
+## 0.0.3 (2023-07-31)
+
+Fix:
+
+- Preventing automatic discovery in python setuptools.
+  - https://setuptools.pypa.io/en/latest/history.html#v61-0-0
+
 ## 0.0.2 (2023-07-30)
 
 Dependencies:

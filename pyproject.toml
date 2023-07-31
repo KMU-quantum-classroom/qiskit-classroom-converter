@@ -2,9 +2,13 @@
 requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
+# https://github.com/qiskit-community/ecosystem/issues/462
+[tool.setuptools]
+py-modules = []
+
 [project]
 name = "qiskit-classroom-converter"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
     { name = "KMU-quantum-classroom" },
 ]
