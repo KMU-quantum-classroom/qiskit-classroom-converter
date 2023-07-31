@@ -5,6 +5,11 @@ build-backend = "setuptools.build_meta"
 # https://github.com/qiskit-community/ecosystem/issues/462
 [tool.setuptools]
 py-modules = []
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ['qiskit_class_converter*']
+exclude = ['qiskit_class_converter*tests']
 
 [project]
 name = "qiskit-classroom-converter"
