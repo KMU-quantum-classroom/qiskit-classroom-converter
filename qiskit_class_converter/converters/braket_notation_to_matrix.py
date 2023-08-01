@@ -117,6 +117,5 @@ class BraketNotationToMatrixConverter(BaseConverter):
     def actual_convert_action(self):
         self.logger.debug("bra-ket notation to matrix")
         expr = self.parse_braket(self.input_value)
-        self.logger.info(expr)
         return expr
     
