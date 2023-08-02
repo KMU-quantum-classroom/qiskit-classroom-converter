@@ -1,6 +1,12 @@
 # CHANGELOG.md
 
-## 0.0.4 (2023-08-02)
+## 0.0.5 (2023-08-02)
+
+Fix:
+- Changed to get the version from the package's metadata.
+- Disabled 0.0.4 version.
+
+## ~~0.0.4 (2023-08-02)~~
 
 Features :
 - Add version information constant

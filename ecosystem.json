@@ -10,6 +10,7 @@
     "versions": ["3.9"]
   },
   "tests_command": [
+    "pip install .",
     "python -m unittest -v"
   ],
   "styles_check_command": [
