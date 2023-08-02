@@ -13,7 +13,7 @@ exclude = ['qiskit_class_converter*tests']
 
 [project]
 name = "qiskit-classroom-converter"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
     { name = "KMU-quantum-classroom" },
 ]
@@ -30,7 +30,8 @@ dependencies = [
     "qiskit-aer==0.12.2",
     "loguru==0.7.0",
     "sympy==1.12",
-    "antlr4-python3-runtime==4.11"
+    "antlr4-python3-runtime==4.11",
+    "tomli==2.0.1; python_version < '3.11'"
 ]
 
 [project.optional-dependencies]

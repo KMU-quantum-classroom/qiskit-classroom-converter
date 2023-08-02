@@ -43,6 +43,39 @@ pip install qiskit-classroom-converter
 #  specific language governing permissions and limitations
 #  under the License.
 
+import re
+
+try:
+    # tomllib — Parse TOML files
+    # New in version 3.11
+    import tomllib  # pylint: disable=no-name-in-module
+except ModuleNotFoundError:
+    import tomli as tomllib  # pylint: disable=no-name-in-module
+
 from .services.converter_service import ConversionService, ConversionType
 
-__all__ = ["ConversionService", "ConversionType"]
+__all__ = ["ConversionService", "ConversionType",
+           "__VERSION__", "__QISKIT_VERSION__", "__FULL_VERSION__"]
+
+# parse library version
+with open("pyproject.toml", "rb") as f:
+    pyproject_text = tomllib.load(f)
+
+__VERSION__ = pyproject_text["project"]["version"]
+
+# parse qiskit version
+with open("requirements.txt", encoding="UTF-8") as file:
+    requirements_text = file.read()
+requirements_text_match = re.match(r"^qiskit==(\d+\.\d+\.\d+)",
+                                   requirements_text)
+
+if requirements_text_match:
+    version = requirements_text_match.group(1)
+    __QISKIT_VERSION__ = version
+else:
+    __QISKIT_VERSION__ = "Unknown Version"
+
+__FULL_VERSION__ = {"Qiskit": __QISKIT_VERSION__, "Lib": __VERSION__}
+""".. warning:: This version constant for document is an example. \
+For the latest version information, see gitHub release or PYPI page. \
+https://pypi.org/project/qiskit-classroom-converter/"""

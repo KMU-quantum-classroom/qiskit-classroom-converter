@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## 0.0.4 (2023-08-02)
+
+Features :
+- Add version information constant
+  - include Converter, Qiskit version
+
+Fix:
+- fix error that unnecessarily return value from logger.
+
 ## 0.0.3 (2023-07-31)
 
 Fix:

@@ -21,9 +21,12 @@ from loguru import logger
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
 
-from qiskit_class_converter import ConversionService, ConversionType
+from qiskit_class_converter import ConversionService, ConversionType, __FULL_VERSION__
 
 warnings.filterwarnings('ignore')
+
+version = __FULL_VERSION__
+logger.info(version)
 
 # matrix to quantum circuit
 input_value = [
@@ -91,8 +94,10 @@ result = sample_converter.convert(input_value=quantum_circuit)
 logger.info(result)
 
 sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
-sample_converter.convert(input_value="<00|01>")
+result = sample_converter.convert(input_value="<00|01>")
+logger.info(result)
 
 # # Alternatives (using Enum)
 sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX)
-sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
+result = sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
+logger.info(result)
