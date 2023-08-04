@@ -57,6 +57,16 @@ for gate in result["gate"]:
     logger.info("\n" + str(gate.astype(int)))
 logger.info("\n" + str(result["result"].astype(int)))
 
+# quantum circuit to matrix (for print: raw option)
+quantum_circuit = QuantumCircuit(2, 2)
+quantum_circuit.x(0)
+quantum_circuit.cx(0, 1)
+sample_converter = ConversionService(conversion_type="QC_TO_MATRIX", option={"print": "raw"})
+result = sample_converter.convert(input_value=quantum_circuit)
+for gate in result["gate"]:
+    logger.info(gate)
+logger.info(result["result"])
+
 # quantum circuit to bra-ket
 quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.h(0)
@@ -97,7 +107,15 @@ sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
 result = sample_converter.convert(input_value="<00|01>")
 logger.info(result)
 
+sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX", option={"print": "raw"})
+result = sample_converter.convert(input_value="<00|01>")
+logger.info(result)
+
 # # Alternatives (using Enum)
 sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX)
+result = sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
+logger.info(result)
+
+sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX, option={"print": "raw"})
 result = sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
 logger.info(result)

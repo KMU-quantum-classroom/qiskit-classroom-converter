@@ -19,9 +19,9 @@ https://kmu-quantum-classroom.github.io/qiskit-classroom-converter/qiskit_class_
 | convert method    | option                                   |
 |-------------------|------------------------------------------|
 | QC_TO_BRA_KET     | expression{simplify, expand}, print{raw} |
-| QC_TO_MATRIX      | -                                        |
+| QC_TO_MATRIX      | print{raw}                               |
 | MATRIX_TO_QC      | label{str}                               |
-| BRA_KET_TO_MATRIX | -                                        |
+| BRA_KET_TO_MATRIX | print{raw}                               |
 
 ```python
 from qiskit_class_converter import ConversionService
