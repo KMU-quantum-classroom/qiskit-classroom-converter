@@ -59,6 +59,9 @@
                                 <a class="variable" href="#ConversionType.MATRIX_TO_QC">MATRIX_TO_QC</a>
                         </li>
                         <li>
+                                <a class="variable" href="#ConversionType.STR_TO_BRA_KET">STR_TO_BRA_KET</a>
+                        </li>
+                        <li>
                                 <a class="variable" href="#ConversionType.BRA_KET_TO_MATRIX">BRA_KET_TO_MATRIX</a>
                         </li>
                 </ul>
@@ -217,43 +220,43 @@ qiskit_class_converter    </h1>
 
     </div>
     <a class="headerlink" href="#ConversionService"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService-90"><a href="#ConversionService-90"><span class="linenos"> 90</span></a><span class="k">class</span> <span class="nc">ConversionService</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
-</span><span id="ConversionService-91"><a href="#ConversionService-91"><span class="linenos"> 91</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ConversionService-92"><a href="#ConversionService-92"><span class="linenos"> 92</span></a><span class="sd">    Conversion Service class</span>
-</span><span id="ConversionService-93"><a href="#ConversionService-93"><span class="linenos"> 93</span></a>
-</span><span id="ConversionService-94"><a href="#ConversionService-94"><span class="linenos"> 94</span></a><span class="sd">```python</span>
-</span><span id="ConversionService-95"><a href="#ConversionService-95"><span class="linenos"> 95</span></a><span class="sd">from qiskit_class_converter import ConversionService</span>
-</span><span id="ConversionService-96"><a href="#ConversionService-96"><span class="linenos"> 96</span></a>
-</span><span id="ConversionService-97"><a href="#ConversionService-97"><span class="linenos"> 97</span></a><span class="sd">ConversionService(conversion_type=&quot;QC_TO_BRA_KET&quot;, option={&quot;expression&quot;: &quot;simplify&quot;})</span>
-</span><span id="ConversionService-98"><a href="#ConversionService-98"><span class="linenos"> 98</span></a><span class="sd">```</span>
-</span><span id="ConversionService-99"><a href="#ConversionService-99"><span class="linenos"> 99</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="ConversionService-100"><a href="#ConversionService-100"><span class="linenos">100</span></a>
-</span><span id="ConversionService-101"><a href="#ConversionService-101"><span class="linenos">101</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="ConversionService-102"><a href="#ConversionService-102"><span class="linenos">102</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ConversionService-103"><a href="#ConversionService-103"><span class="linenos">103</span></a><span class="sd">        init function</span>
-</span><span id="ConversionService-104"><a href="#ConversionService-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
-</span><span id="ConversionService-105"><a href="#ConversionService-105"><span class="linenos">105</span></a><span class="sd">        :param option: See the Options table in this article.</span>
-</span><span id="ConversionService-106"><a href="#ConversionService-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ConversionService-107"><a href="#ConversionService-107"><span class="linenos">107</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="ConversionService-108"><a href="#ConversionService-108"><span class="linenos">108</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="ConversionService-109"><a href="#ConversionService-109"><span class="linenos">109</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="n">option</span>
-</span><span id="ConversionService-110"><a href="#ConversionService-110"><span class="linenos">110</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="ConversionService-111"><a href="#ConversionService-111"><span class="linenos">111</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">ConversionType</span><span class="p">[</span><span class="n">conversion_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span>
-</span><span id="ConversionService-112"><a href="#ConversionService-112"><span class="linenos">112</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">):</span>
-</span><span id="ConversionService-113"><a href="#ConversionService-113"><span class="linenos">113</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">conversion_type</span><span class="o">.</span><span class="n">value</span>
-</span><span id="ConversionService-114"><a href="#ConversionService-114"><span class="linenos">114</span></a>
-</span><span id="ConversionService-115"><a href="#ConversionService-115"><span class="linenos">115</span></a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_value</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
-</span><span id="ConversionService-116"><a href="#ConversionService-116"><span class="linenos">116</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ConversionService-117"><a href="#ConversionService-117"><span class="linenos">117</span></a><span class="sd">        convert functions</span>
-</span><span id="ConversionService-118"><a href="#ConversionService-118"><span class="linenos">118</span></a>
-</span><span id="ConversionService-119"><a href="#ConversionService-119"><span class="linenos">119</span></a><span class="sd">            result = sample_converter.convert(input_value=quantum_circuit)</span>
-</span><span id="ConversionService-120"><a href="#ConversionService-120"><span class="linenos">120</span></a><span class="sd">            logger.info(result)</span>
-</span><span id="ConversionService-121"><a href="#ConversionService-121"><span class="linenos">121</span></a>
-</span><span id="ConversionService-122"><a href="#ConversionService-122"><span class="linenos">122</span></a><span class="sd">        :param input_value: QuantumCircuit or MATRIX or BRA_KET String</span>
-</span><span id="ConversionService-123"><a href="#ConversionService-123"><span class="linenos">123</span></a><span class="sd">        :return: Converted result</span>
-</span><span id="ConversionService-124"><a href="#ConversionService-124"><span class="linenos">124</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ConversionService-125"><a href="#ConversionService-125"><span class="linenos">125</span></a>        <span class="n">convert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">option</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
-</span><span id="ConversionService-126"><a href="#ConversionService-126"><span class="linenos">126</span></a>        <span class="k">return</span> <span class="n">convert</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService-92"><a href="#ConversionService-92"><span class="linenos"> 92</span></a><span class="k">class</span> <span class="nc">ConversionService</span><span class="p">:</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
+</span><span id="ConversionService-93"><a href="#ConversionService-93"><span class="linenos"> 93</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConversionService-94"><a href="#ConversionService-94"><span class="linenos"> 94</span></a><span class="sd">    Conversion Service class</span>
+</span><span id="ConversionService-95"><a href="#ConversionService-95"><span class="linenos"> 95</span></a>
+</span><span id="ConversionService-96"><a href="#ConversionService-96"><span class="linenos"> 96</span></a><span class="sd">```python</span>
+</span><span id="ConversionService-97"><a href="#ConversionService-97"><span class="linenos"> 97</span></a><span class="sd">from qiskit_class_converter import ConversionService</span>
+</span><span id="ConversionService-98"><a href="#ConversionService-98"><span class="linenos"> 98</span></a>
+</span><span id="ConversionService-99"><a href="#ConversionService-99"><span class="linenos"> 99</span></a><span class="sd">ConversionService(conversion_type=&quot;QC_TO_BRA_KET&quot;, option={&quot;expression&quot;: &quot;simplify&quot;})</span>
+</span><span id="ConversionService-100"><a href="#ConversionService-100"><span class="linenos">100</span></a><span class="sd">```</span>
+</span><span id="ConversionService-101"><a href="#ConversionService-101"><span class="linenos">101</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="ConversionService-102"><a href="#ConversionService-102"><span class="linenos">102</span></a>
+</span><span id="ConversionService-103"><a href="#ConversionService-103"><span class="linenos">103</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="ConversionService-104"><a href="#ConversionService-104"><span class="linenos">104</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConversionService-105"><a href="#ConversionService-105"><span class="linenos">105</span></a><span class="sd">        init function</span>
+</span><span id="ConversionService-106"><a href="#ConversionService-106"><span class="linenos">106</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
+</span><span id="ConversionService-107"><a href="#ConversionService-107"><span class="linenos">107</span></a><span class="sd">        :param option: See the Options table in this article.</span>
+</span><span id="ConversionService-108"><a href="#ConversionService-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ConversionService-109"><a href="#ConversionService-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="ConversionService-110"><a href="#ConversionService-110"><span class="linenos">110</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="ConversionService-111"><a href="#ConversionService-111"><span class="linenos">111</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="n">option</span>
+</span><span id="ConversionService-112"><a href="#ConversionService-112"><span class="linenos">112</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ConversionService-113"><a href="#ConversionService-113"><span class="linenos">113</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">ConversionType</span><span class="p">[</span><span class="n">conversion_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span>
+</span><span id="ConversionService-114"><a href="#ConversionService-114"><span class="linenos">114</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">):</span>
+</span><span id="ConversionService-115"><a href="#ConversionService-115"><span class="linenos">115</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">conversion_type</span><span class="o">.</span><span class="n">value</span>
+</span><span id="ConversionService-116"><a href="#ConversionService-116"><span class="linenos">116</span></a>
+</span><span id="ConversionService-117"><a href="#ConversionService-117"><span class="linenos">117</span></a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_value</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+</span><span id="ConversionService-118"><a href="#ConversionService-118"><span class="linenos">118</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConversionService-119"><a href="#ConversionService-119"><span class="linenos">119</span></a><span class="sd">        convert functions</span>
+</span><span id="ConversionService-120"><a href="#ConversionService-120"><span class="linenos">120</span></a>
+</span><span id="ConversionService-121"><a href="#ConversionService-121"><span class="linenos">121</span></a><span class="sd">            result = sample_converter.convert(input_value=quantum_circuit)</span>
+</span><span id="ConversionService-122"><a href="#ConversionService-122"><span class="linenos">122</span></a><span class="sd">            logger.info(result)</span>
+</span><span id="ConversionService-123"><a href="#ConversionService-123"><span class="linenos">123</span></a>
+</span><span id="ConversionService-124"><a href="#ConversionService-124"><span class="linenos">124</span></a><span class="sd">        :param input_value: QuantumCircuit or MATRIX or BRA_KET String</span>
+</span><span id="ConversionService-125"><a href="#ConversionService-125"><span class="linenos">125</span></a><span class="sd">        :return: Converted result</span>
+</span><span id="ConversionService-126"><a href="#ConversionService-126"><span class="linenos">126</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ConversionService-127"><a href="#ConversionService-127"><span class="linenos">127</span></a>        <span class="n">convert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">option</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+</span><span id="ConversionService-128"><a href="#ConversionService-128"><span class="linenos">128</span></a>        <span class="k">return</span> <span class="n">convert</span>
 </span></pre></div>
 
 
@@ -278,19 +281,19 @@ qiskit_class_converter    </h1>
 
     </div>
     <a class="headerlink" href="#ConversionService.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService.__init__-101"><a href="#ConversionService.__init__-101"><span class="linenos">101</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="ConversionService.__init__-102"><a href="#ConversionService.__init__-102"><span class="linenos">102</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ConversionService.__init__-103"><a href="#ConversionService.__init__-103"><span class="linenos">103</span></a><span class="sd">        init function</span>
-</span><span id="ConversionService.__init__-104"><a href="#ConversionService.__init__-104"><span class="linenos">104</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
-</span><span id="ConversionService.__init__-105"><a href="#ConversionService.__init__-105"><span class="linenos">105</span></a><span class="sd">        :param option: See the Options table in this article.</span>
-</span><span id="ConversionService.__init__-106"><a href="#ConversionService.__init__-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ConversionService.__init__-107"><a href="#ConversionService.__init__-107"><span class="linenos">107</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="ConversionService.__init__-108"><a href="#ConversionService.__init__-108"><span class="linenos">108</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="ConversionService.__init__-109"><a href="#ConversionService.__init__-109"><span class="linenos">109</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="n">option</span>
-</span><span id="ConversionService.__init__-110"><a href="#ConversionService.__init__-110"><span class="linenos">110</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="ConversionService.__init__-111"><a href="#ConversionService.__init__-111"><span class="linenos">111</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">ConversionType</span><span class="p">[</span><span class="n">conversion_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span>
-</span><span id="ConversionService.__init__-112"><a href="#ConversionService.__init__-112"><span class="linenos">112</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">):</span>
-</span><span id="ConversionService.__init__-113"><a href="#ConversionService.__init__-113"><span class="linenos">113</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">conversion_type</span><span class="o">.</span><span class="n">value</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService.__init__-103"><a href="#ConversionService.__init__-103"><span class="linenos">103</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conversion_type</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">],</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="ConversionService.__init__-104"><a href="#ConversionService.__init__-104"><span class="linenos">104</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConversionService.__init__-105"><a href="#ConversionService.__init__-105"><span class="linenos">105</span></a><span class="sd">        init function</span>
+</span><span id="ConversionService.__init__-106"><a href="#ConversionService.__init__-106"><span class="linenos">106</span></a><span class="sd">        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX</span>
+</span><span id="ConversionService.__init__-107"><a href="#ConversionService.__init__-107"><span class="linenos">107</span></a><span class="sd">        :param option: See the Options table in this article.</span>
+</span><span id="ConversionService.__init__-108"><a href="#ConversionService.__init__-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ConversionService.__init__-109"><a href="#ConversionService.__init__-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="n">option</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="ConversionService.__init__-110"><a href="#ConversionService.__init__-110"><span class="linenos">110</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="ConversionService.__init__-111"><a href="#ConversionService.__init__-111"><span class="linenos">111</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">option</span> <span class="o">=</span> <span class="n">option</span>
+</span><span id="ConversionService.__init__-112"><a href="#ConversionService.__init__-112"><span class="linenos">112</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ConversionService.__init__-113"><a href="#ConversionService.__init__-113"><span class="linenos">113</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">ConversionType</span><span class="p">[</span><span class="n">conversion_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">value</span>
+</span><span id="ConversionService.__init__-114"><a href="#ConversionService.__init__-114"><span class="linenos">114</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conversion_type</span><span class="p">,</span> <span class="n">ConversionType</span><span class="p">):</span>
+</span><span id="ConversionService.__init__-115"><a href="#ConversionService.__init__-115"><span class="linenos">115</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span> <span class="o">=</span> <span class="n">conversion_type</span><span class="o">.</span><span class="n">value</span>
 </span></pre></div>
 
 
@@ -328,18 +331,18 @@ qiskit_class_converter    </h1>
 
     </div>
     <a class="headerlink" href="#ConversionService.convert"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService.convert-115"><a href="#ConversionService.convert-115"><span class="linenos">115</span></a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_value</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
-</span><span id="ConversionService.convert-116"><a href="#ConversionService.convert-116"><span class="linenos">116</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ConversionService.convert-117"><a href="#ConversionService.convert-117"><span class="linenos">117</span></a><span class="sd">        convert functions</span>
-</span><span id="ConversionService.convert-118"><a href="#ConversionService.convert-118"><span class="linenos">118</span></a>
-</span><span id="ConversionService.convert-119"><a href="#ConversionService.convert-119"><span class="linenos">119</span></a><span class="sd">            result = sample_converter.convert(input_value=quantum_circuit)</span>
-</span><span id="ConversionService.convert-120"><a href="#ConversionService.convert-120"><span class="linenos">120</span></a><span class="sd">            logger.info(result)</span>
-</span><span id="ConversionService.convert-121"><a href="#ConversionService.convert-121"><span class="linenos">121</span></a>
-</span><span id="ConversionService.convert-122"><a href="#ConversionService.convert-122"><span class="linenos">122</span></a><span class="sd">        :param input_value: QuantumCircuit or MATRIX or BRA_KET String</span>
-</span><span id="ConversionService.convert-123"><a href="#ConversionService.convert-123"><span class="linenos">123</span></a><span class="sd">        :return: Converted result</span>
-</span><span id="ConversionService.convert-124"><a href="#ConversionService.convert-124"><span class="linenos">124</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ConversionService.convert-125"><a href="#ConversionService.convert-125"><span class="linenos">125</span></a>        <span class="n">convert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">option</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
-</span><span id="ConversionService.convert-126"><a href="#ConversionService.convert-126"><span class="linenos">126</span></a>        <span class="k">return</span> <span class="n">convert</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConversionService.convert-117"><a href="#ConversionService.convert-117"><span class="linenos">117</span></a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_value</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+</span><span id="ConversionService.convert-118"><a href="#ConversionService.convert-118"><span class="linenos">118</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConversionService.convert-119"><a href="#ConversionService.convert-119"><span class="linenos">119</span></a><span class="sd">        convert functions</span>
+</span><span id="ConversionService.convert-120"><a href="#ConversionService.convert-120"><span class="linenos">120</span></a>
+</span><span id="ConversionService.convert-121"><a href="#ConversionService.convert-121"><span class="linenos">121</span></a><span class="sd">            result = sample_converter.convert(input_value=quantum_circuit)</span>
+</span><span id="ConversionService.convert-122"><a href="#ConversionService.convert-122"><span class="linenos">122</span></a><span class="sd">            logger.info(result)</span>
+</span><span id="ConversionService.convert-123"><a href="#ConversionService.convert-123"><span class="linenos">123</span></a>
+</span><span id="ConversionService.convert-124"><a href="#ConversionService.convert-124"><span class="linenos">124</span></a><span class="sd">        :param input_value: QuantumCircuit or MATRIX or BRA_KET String</span>
+</span><span id="ConversionService.convert-125"><a href="#ConversionService.convert-125"><span class="linenos">125</span></a><span class="sd">        :return: Converted result</span>
+</span><span id="ConversionService.convert-126"><a href="#ConversionService.convert-126"><span class="linenos">126</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ConversionService.convert-127"><a href="#ConversionService.convert-127"><span class="linenos">127</span></a>        <span class="n">convert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__conversion_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">option</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+</span><span id="ConversionService.convert-128"><a href="#ConversionService.convert-128"><span class="linenos">128</span></a>        <span class="k">return</span> <span class="n">convert</span>
 </span></pre></div>
 
 
@@ -419,14 +422,17 @@ logger.info(result)
 </span><span id="ConversionType-77"><a href="#ConversionType-77"><span class="linenos">77</span></a><span class="sd">quantum_circuit = QuantumCircuit(2, 2)</span>
 </span><span id="ConversionType-78"><a href="#ConversionType-78"><span class="linenos">78</span></a><span class="sd">quantum_circuit.append(result, [0, 1])</span>
 </span><span id="ConversionType-79"><a href="#ConversionType-79"><span class="linenos">79</span></a><span class="sd">```&quot;&quot;&quot;</span>
-</span><span id="ConversionType-80"><a href="#ConversionType-80"><span class="linenos">80</span></a>    <span class="n">BRA_KET_TO_MATRIX</span> <span class="o">=</span> <span class="n">BraketNotationToMatrixConverter</span>
+</span><span id="ConversionType-80"><a href="#ConversionType-80"><span class="linenos">80</span></a>    <span class="n">STR_TO_BRA_KET</span> <span class="o">=</span> <span class="n">StringToBraketNotationConverter</span>
 </span><span id="ConversionType-81"><a href="#ConversionType-81"><span class="linenos">81</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;```python</span>
 </span><span id="ConversionType-82"><a href="#ConversionType-82"><span class="linenos">82</span></a><span class="sd">from qiskit import QuantumCircuit</span>
 </span><span id="ConversionType-83"><a href="#ConversionType-83"><span class="linenos">83</span></a><span class="sd">from qiskit_class_converter import ConversionService</span>
 </span><span id="ConversionType-84"><a href="#ConversionType-84"><span class="linenos">84</span></a>
-</span><span id="ConversionType-85"><a href="#ConversionType-85"><span class="linenos">85</span></a><span class="sd">sample_converter = ConversionService(conversion_type=&quot;BRA_KET_TO_MATRIX&quot;)</span>
+</span><span id="ConversionType-85"><a href="#ConversionType-85"><span class="linenos">85</span></a><span class="sd">sample_converter = ConversionService(conversion_type=&quot;STR_TO_BRA_KET&quot;)</span>
 </span><span id="ConversionType-86"><a href="#ConversionType-86"><span class="linenos">86</span></a><span class="sd">sample_converter.convert(input_value=&quot;|01&gt;&quot;)</span>
 </span><span id="ConversionType-87"><a href="#ConversionType-87"><span class="linenos">87</span></a><span class="sd">```&quot;&quot;&quot;</span>
+</span><span id="ConversionType-88"><a href="#ConversionType-88"><span class="linenos">88</span></a>    <span class="n">BRA_KET_TO_MATRIX</span> <span class="o">=</span> <span class="n">StringToBraketNotationConverter</span>
+</span><span id="ConversionType-89"><a href="#ConversionType-89"><span class="linenos">89</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;.. warning:: BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated. \</span>
+</span><span id="ConversionType-90"><a href="#ConversionType-90"><span class="linenos">90</span></a><span class="sd">    This naming will be removed in 0.2 and later.&quot;&quot;&quot;</span>
 </span></pre></div>
 
 
@@ -515,23 +521,42 @@ logger.info(result)
 
 
                             </div>
-                            <div id="ConversionType.BRA_KET_TO_MATRIX" class="classattr">
+                            <div id="ConversionType.STR_TO_BRA_KET" class="classattr">
                                 <div class="attr variable">
-            <span class="name">BRA_KET_TO_MATRIX</span>        =
-<input id="ConversionType.BRA_KET_TO_MATRIX-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-            <label class="view-value-button pdoc-button" for="ConversionType.BRA_KET_TO_MATRIX-view-value"></label><span class="default_value">&lt;<a href="#ConversionType.BRA_KET_TO_MATRIX">ConversionType.BRA_KET_TO_MATRIX</a>: &lt;class &#39;qiskit_class_converter.converters.braket_notation_to_matrix.BraketNotationToMatrixConverter&#39;&gt;&gt;</span>
+            <span class="name">STR_TO_BRA_KET</span>        =
+<input id="ConversionType.STR_TO_BRA_KET-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+            <label class="view-value-button pdoc-button" for="ConversionType.STR_TO_BRA_KET-view-value"></label><span class="default_value">&lt;<a href="#ConversionType.STR_TO_BRA_KET">ConversionType.STR_TO_BRA_KET</a>: &lt;class &#39;qiskit_class_converter.converters.string_to_braket_notation.StringToBraketNotationConverter&#39;&gt;&gt;</span>
 
         
     </div>
-    <a class="headerlink" href="#ConversionType.BRA_KET_TO_MATRIX"></a>
+    <a class="headerlink" href="#ConversionType.STR_TO_BRA_KET"></a>
     
             <div class="docstring"><div class="pdoc-code codehilite">
 <pre><span></span><code><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
 <span class="kn">from</span> <span class="nn">qiskit_class_converter</span> <span class="kn">import</span> <span class="n">ConversionService</span>
 
-<span class="n">sample_converter</span> <span class="o">=</span> <span class="n">ConversionService</span><span class="p">(</span><span class="n">conversion_type</span><span class="o">=</span><span class="s2">&quot;BRA_KET_TO_MATRIX&quot;</span><span class="p">)</span>
+<span class="n">sample_converter</span> <span class="o">=</span> <span class="n">ConversionService</span><span class="p">(</span><span class="n">conversion_type</span><span class="o">=</span><span class="s2">&quot;STR_TO_BRA_KET&quot;</span><span class="p">)</span>
 <span class="n">sample_converter</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">input_value</span><span class="o">=</span><span class="s2">&quot;|01&gt;&quot;</span><span class="p">)</span>
 </code></pre>
+</div>
+</div>
+
+
+                            </div>
+                            <div id="ConversionType.BRA_KET_TO_MATRIX" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BRA_KET_TO_MATRIX</span>        =
+<input id="ConversionType.BRA_KET_TO_MATRIX-view-value" class="view-value-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+            <label class="view-value-button pdoc-button" for="ConversionType.BRA_KET_TO_MATRIX-view-value"></label><span class="default_value">&lt;<a href="#ConversionType.STR_TO_BRA_KET">ConversionType.STR_TO_BRA_KET</a>: &lt;class &#39;qiskit_class_converter.converters.string_to_braket_notation.StringToBraketNotationConverter&#39;&gt;&gt;</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ConversionType.BRA_KET_TO_MATRIX"></a>
+    
+            <div class="docstring"><div class="pdoc-alert pdoc-alert-warning">
+
+<h6 id="bra_ket_to_matrix-was-changed-to-str_to_bra_ket-and-deprecated-this-naming-will-be-removed-in-02-and-later">BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated.     This naming will be removed in 0.2 and later.</h6>
+
 </div>
 </div>
 
@@ -551,7 +576,7 @@ logger.info(result)
                 <section id="__VERSION__">
                     <div class="attr variable">
             <span class="name">__VERSION__</span>        =
-<span class="default_value">&#39;0.1.0.dev1&#39;</span>
+<span class="default_value">&#39;0.0.5&#39;</span>
 
         
     </div>
@@ -575,7 +600,7 @@ logger.info(result)
                 <section id="__FULL_VERSION__">
                     <div class="attr variable">
             <span class="name">__FULL_VERSION__</span>        =
-<span class="default_value">{&#39;Qiskit&#39;: &#39;0.44.0&#39;, &#39;Lib&#39;: &#39;0.1.0.dev1&#39;}</span>
+<span class="default_value">{&#39;Qiskit&#39;: &#39;0.44.0&#39;, &#39;Lib&#39;: &#39;0.0.5&#39;}</span>
 
         
     </div>

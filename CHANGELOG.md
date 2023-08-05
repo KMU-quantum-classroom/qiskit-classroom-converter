@@ -5,6 +5,12 @@
 Features :
 - Add latex visualize feature for matrix & formula
 
+Fix :
+- change BRA_KET_TO_MATRIX to STR_TO_BRA_KET naming
+
+Deprecate :
+- BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated.
+
 ## 0.0.5 (2023-08-02)
 
 Fix:

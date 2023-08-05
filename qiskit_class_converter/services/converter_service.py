@@ -23,8 +23,8 @@ from enum import Enum
 
 from qiskit import QuantumCircuit
 
-from qiskit_class_converter.converters.braket_notation_to_matrix \
-    import BraketNotationToMatrixConverter
+from qiskit_class_converter.converters.string_to_braket_notation \
+    import StringToBraketNotationConverter
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
 from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
@@ -76,15 +76,17 @@ result = sample_converter.convert(input_value=input_value)
 quantum_circuit = QuantumCircuit(2, 2)
 quantum_circuit.append(result, [0, 1])
 ```"""
-    BRA_KET_TO_MATRIX = BraketNotationToMatrixConverter
+    STR_TO_BRA_KET = StringToBraketNotationConverter
     """```python
 from qiskit import QuantumCircuit
 from qiskit_class_converter import ConversionService
 
-sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
+sample_converter = ConversionService(conversion_type="STR_TO_BRA_KET")
 sample_converter.convert(input_value="|01>")
 ```"""
-
+    BRA_KET_TO_MATRIX = StringToBraketNotationConverter
+    """.. warning:: BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated. \
+    This naming will be removed in 0.2 and later."""
 
 class ConversionService:  # pylint: disable=too-few-public-methods
     """

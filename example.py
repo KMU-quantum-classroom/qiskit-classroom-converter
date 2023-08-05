@@ -103,19 +103,19 @@ sample_converter = ConversionService(conversion_type="QC_TO_BRA_KET", option={"p
 result = sample_converter.convert(input_value=quantum_circuit)
 logger.info(result)
 
-sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
+sample_converter = ConversionService(conversion_type="STR_TO_BRA_KET")
 result = sample_converter.convert(input_value="<00|01>")
 logger.info(result)
 
-sample_converter = ConversionService(conversion_type="BRA_KET_TO_MATRIX", option={"print": "raw"})
+sample_converter = ConversionService(conversion_type="STR_TO_BRA_KET", option={"print": "raw"})
 result = sample_converter.convert(input_value="<00|01>")
 logger.info(result)
 
 # # Alternatives (using Enum)
-sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX)
+sample_converter = ConversionService(conversion_type=ConversionType.STR_TO_BRA_KET)
 result = sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
 logger.info(result)
 
-sample_converter = ConversionService(conversion_type=ConversionType.BRA_KET_TO_MATRIX, option={"print": "raw"})
+sample_converter = ConversionService(conversion_type=ConversionType.STR_TO_BRA_KET, option={"print": "raw"})
 result = sample_converter.convert(input_value="sqrt(2)*|00>/2+sqrt(2)*|11>/2")
 logger.info(result)

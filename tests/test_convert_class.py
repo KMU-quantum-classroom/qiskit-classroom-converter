@@ -30,8 +30,8 @@ from sympy import sqrt
 from sympy.physics.quantum import represent
 
 
-from qiskit_class_converter.converters.braket_notation_to_matrix \
-    import BraketNotationToMatrixConverter
+from qiskit_class_converter.converters.string_to_braket_notation \
+    import StringToBraketNotationConverter
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
 from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
@@ -43,9 +43,9 @@ from qiskit_class_converter.converters.quantum_circuit_to_matrix \
 class TestConvertClass(unittest.TestCase):
     """Tests Impl class implementation."""
 
-    def test_bra_ket_to_matrix(self):
+    def test_str_to_bra_ket(self):
         """Tests run method implementation."""
-        main = BraketNotationToMatrixConverter()
+        main = StringToBraketNotationConverter()
         symbol = 1/sqrt(2)*(Qubit('00')+Qubit('11'))
         input_value = "sqrt(2)*|00>/2+sqrt(2)*|11>/2"
         result = main.convert(input_value=input_value)

@@ -1,5 +1,5 @@
 """
-Bra-ket Notation to Matrix Converter
+String to Bra-ket Notation
 """
 # from sympy.physics.quantum.represent import represent
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -29,7 +29,7 @@ from sympy.physics.quantum.qubit import Qubit  # , measure_all
 from qiskit_class_converter.converters.base import BaseConverter
 
 
-class BraketNotationToMatrixConverter(BaseConverter):
+class StringToBraketNotationConverter(BaseConverter):
     """
     Converter class
     """
@@ -117,7 +117,7 @@ class BraketNotationToMatrixConverter(BaseConverter):
         return expr
 
     def actual_convert_action(self):
-        self.logger.debug("bra-ket notation to matrix")
+        self.logger.debug("String to bra-ket notation")
         expr = self.parse_braket(self.input_value)
         if self.option.get("print", False) == "raw":
             return latex(expr)
