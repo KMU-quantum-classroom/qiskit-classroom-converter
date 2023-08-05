@@ -118,7 +118,11 @@ class StringToBraketNotationConverter(BaseConverter):
 
     def actual_convert_action(self):
         self.logger.debug("String to bra-ket notation")
-        expr = self.parse_braket(self.input_value)
+        # type validate
+        if isinstance(self.input_value, str):
+            expr = self.parse_braket(self.input_value)
+        else:
+            raise TypeError("str is required.")
         if self.option.get("print", False) == "raw":
             return latex(expr)
         return expr

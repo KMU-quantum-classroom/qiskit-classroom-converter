@@ -21,6 +21,7 @@ converter service
 import typing
 from enum import Enum
 
+import numpy as np
 from qiskit import QuantumCircuit
 
 from qiskit_class_converter.converters.string_to_braket_notation \
@@ -113,7 +114,7 @@ ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simpli
         elif isinstance(conversion_type, ConversionType):
             self.__conversion_object = conversion_type.value
 
-    def convert(self, input_value: typing.Union[list, QuantumCircuit, str]):
+    def convert(self, input_value: typing.Union[list, np.ndarray, QuantumCircuit, str]):
         """
         convert functions
 

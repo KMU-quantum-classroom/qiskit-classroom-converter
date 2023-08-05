@@ -4,6 +4,7 @@
 
 Features :
 - Add latex visualize feature for matrix & formula
+- Add validation code
 
 Fix :
 - change BRA_KET_TO_MATRIX to STR_TO_BRA_KET naming
