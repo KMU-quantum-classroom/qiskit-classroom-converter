@@ -14,16 +14,16 @@ pip install qiskit-classroom-converter
 * quantum circuit to bra-ket notation
 * quantum circuit to matrix
 * matrix to quantum circuit
-* bra-ket notation to matrix
+* string to bra-ket notation
 
 # Options
 
-| convert method    | option                                   |
-|-------------------|------------------------------------------|
-| QC_TO_BRA_KET     | expression{simplify, expand}, print{raw} |
-| QC_TO_MATRIX      | print{raw}                               |
-| MATRIX_TO_QC      | label{str}                               |
-| BRA_KET_TO_MATRIX | print{raw}                               |
+| convert method | option                                   |
+|----------------|------------------------------------------|
+| QC_TO_BRA_KET  | expression{simplify, expand}, print{raw} |
+| QC_TO_MATRIX   | print{raw}                               |
+| MATRIX_TO_QC   | label{str}                               |
+| STR_TO_BRA_KET | print{raw}                               |
 
 """
 #  Licensed to the Apache Software Foundation (ASF) under one

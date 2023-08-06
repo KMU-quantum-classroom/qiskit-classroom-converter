@@ -24,14 +24,14 @@ from enum import Enum
 import numpy as np
 from qiskit import QuantumCircuit
 
-from qiskit_class_converter.converters.string_to_braket_notation \
-    import StringToBraketNotationConverter
 from qiskit_class_converter.converters.matrix_to_quantum_circuit \
     import MatrixToQuantumCircuitConverter
 from qiskit_class_converter.converters.quantum_circuit_to_braket_notation \
     import QuantumCircuitToBraketNotationConverter
 from qiskit_class_converter.converters.quantum_circuit_to_matrix \
     import QuantumCircuitToMatrixConverter
+from qiskit_class_converter.converters.string_to_braket_notation \
+    import StringToBraketNotationConverter
 
 
 class ConversionType(Enum):
@@ -89,6 +89,7 @@ sample_converter.convert(input_value="|01>")
     """.. warning:: BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated. \
     This naming will be removed in 0.2 and later."""
 
+
 class ConversionService:  # pylint: disable=too-few-public-methods
     """
     Conversion Service class
@@ -103,7 +104,7 @@ ConversionService(conversion_type="QC_TO_BRA_KET", option={"expression": "simpli
     def __init__(self, conversion_type: typing.Union[str, ConversionType], option=None):
         """
         init function
-        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, BRA_KET_TO_MATRIX
+        :param conversion_type:  QC_TO_BRA_KET, QC_TO_MATRIX, MATRIX_TO_QC, STR_TO_BRA_KET
         :param option: See the Options table in this article.
         """
         if option is None:
