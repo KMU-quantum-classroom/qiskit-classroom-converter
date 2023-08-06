@@ -3,6 +3,5 @@ qiskit-aer==0.12.2
 loguru==0.7.0
 sympy==1.12
 antlr4-python3-runtime==4.11
-ipython==8.14.0; python_version >= "3.9"
-ipython==8.12.2; python_version < "3.9"
+ipython==8.14.0
 numpy==1.25.2

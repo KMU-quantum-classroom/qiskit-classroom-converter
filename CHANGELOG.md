@@ -11,6 +11,7 @@ Fix :
 
 Deprecate :
 - BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated.
+- drop support for Python 3.8 due to changes support for our dependency.
 
 ## 0.0.5 (2023-08-02)
 

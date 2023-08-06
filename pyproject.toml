@@ -19,7 +19,7 @@ authors = [
 ]
 description = "extend the Qiskit classroom applications."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
@@ -31,8 +31,7 @@ dependencies = [
     "loguru==0.7.0",
     "sympy==1.12",
     "antlr4-python3-runtime==4.11",
-    'ipython==8.14.0; python_version >= "3.9"',
-    'ipython==8.12.2; python_version < "3.9"',
+    "ipython==8.14.0",
     "numpy==1.25.2"
 ]
 
