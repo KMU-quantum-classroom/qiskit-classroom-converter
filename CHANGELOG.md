@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.1.0.dev1 ()
+## 0.1.0 (2023-08-06)
 
 Features :
 - Add latex visualize feature for matrix & formula
