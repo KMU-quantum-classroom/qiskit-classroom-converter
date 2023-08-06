@@ -1,5 +1,18 @@
 # CHANGELOG.md
 
+## 0.1.0.dev1 ()
+
+Features :
+- Add latex visualize feature for matrix & formula
+- Add validation code
+
+Fix :
+- change BRA_KET_TO_MATRIX to STR_TO_BRA_KET naming
+
+Deprecate :
+- BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated.
+- drop support for Python 3.8 due to changes support for our dependency.
+
 ## 0.0.5 (2023-08-02)
 
 Fix:

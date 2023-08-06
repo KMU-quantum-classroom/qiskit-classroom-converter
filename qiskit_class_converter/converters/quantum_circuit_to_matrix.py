@@ -17,6 +17,11 @@ QuantumCircuit to Matrix Converter
 #  KIND, either express or implied.  See the License for the
 #  specific language governing permissions and limitations
 #  under the License.
+from typing import List
+
+import numpy as np
+from qiskit import QuantumCircuit
+from qiskit.visualization import array_to_latex
 
 from qiskit_class_converter.converters.base import BaseConverter
 
@@ -25,12 +30,25 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
     """
     Converter class
     """
+
     def actual_convert_action(self):
         self.logger.debug("quantum circuit to matrix")
         matrix_list = {"gate": []}
-        dag = self.qiskit.converters.circuit_to_dag(self.input_value)
+        # type validate
+        if isinstance(self.input_value, (List, QuantumCircuit)):
+            dag = self.qiskit.converters.circuit_to_dag(self.input_value)
+        else:
+            raise TypeError("QuantumCircuit is required.")
         for layer in dag.layers():
             circuit = self.qiskit.converters.dag_to_circuit(layer['graph'])
             matrix_list["gate"].append(self.qiskit.quantum_info.Operator(circuit).to_matrix())
         matrix_list["result"] = self.qiskit.quantum_info.Operator(self.input_value).to_matrix()
+        if self.option.get("print", False) == "raw":
+            latex_source_list = {"gate": []}
+            for each_matrix in matrix_list["gate"]:
+                latex_source_list["gate"].append(
+                    array_to_latex(array=np.array(each_matrix), source=True))
+            latex_source_list["result"] = array_to_latex(
+                array=np.array(matrix_list["result"]), source=True)
+            return latex_source_list
         return matrix_list

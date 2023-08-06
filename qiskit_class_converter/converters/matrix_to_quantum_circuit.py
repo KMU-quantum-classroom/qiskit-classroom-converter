@@ -18,6 +18,10 @@ Matrix to Quantum Circuit Converter
 #  specific language governing permissions and limitations
 #  under the License.
 
+from typing import List
+
+import numpy as np
+
 from qiskit_class_converter.converters.base import BaseConverter
 
 
@@ -28,7 +32,11 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
 
     def actual_convert_action(self):
         self.logger.debug("matrix to quantum circuit")
-        gate = self.qiskit.extensions.UnitaryGate(self.input_value)
+        # type validate
+        if isinstance(self.input_value, (List, np.ndarray)):
+            gate = self.qiskit.extensions.UnitaryGate(self.input_value)
+        else:
+            raise TypeError("List or np.ndarray is required.")
         # parse by unitary circuit. can't describe what circuit is.
         if self.option.get("label", False):
             gate.label = self.option.get("label", "")

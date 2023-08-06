@@ -30,10 +30,10 @@ from qiskit_class_converter.converters.matrix_to_quantum_circuit \
 class TestConverterServiceClass(unittest.TestCase):
     """Tests Service Impl class implementation."""
 
-    def test_bra_ket_to_matrix_service(self):
+    def test_str_to_bra_ket_service(self):
         """Tests run Service method implementation."""
         input_value = "|1>"
-        system = ConversionService(conversion_type="BRA_KET_TO_MATRIX")
+        system = ConversionService(conversion_type="STR_TO_BRA_KET")
         result = system.convert(input_value=input_value)
         self.assertIsNotNone(result)
 

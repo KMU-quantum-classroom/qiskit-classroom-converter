@@ -17,8 +17,10 @@ QuantumCircuit to Bra-ket Notation Converter
 #  KIND, either express or implied.  See the License for the
 #  specific language governing permissions and limitations
 #  under the License.
+from typing import List
 
 from loguru import logger
+from qiskit import QuantumCircuit
 from sympy import SympifyError, simplify, expand, latex
 from sympy.parsing.latex import parse_latex
 
@@ -34,7 +36,11 @@ class QuantumCircuitToBraketNotationConverter(BaseConverter):
     def actual_convert_action(self):
         self.logger.debug("quantum circuit to bra-ket notation")
         self.input_value.save_statevector()
-        result = self.qiskit_aer.AerSimulator().run(self.input_value).result()
+        # type validate
+        if isinstance(self.input_value, (List, QuantumCircuit)):
+            result = self.qiskit_aer.AerSimulator().run(self.input_value).result()
+        else:
+            raise TypeError("QuantumCircuit is required.")
         source = result.get_statevector().draw("latex_source")
         try:
             if (self.option.get("expression", False) == "simplify") and \
