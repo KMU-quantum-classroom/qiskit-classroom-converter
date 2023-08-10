@@ -25,6 +25,14 @@ pip install qiskit-classroom-converter
 | MATRIX_TO_QC   | label{str}                               |
 | STR_TO_BRA_KET | print{raw}                               |
 
+# Acknowledgement
+
+- 국문 : "본 연구는 2022년 과학기술정보통신부 및 정보통신기획평가원의 SW중심대학사업의 연구결과로 수행되었음"(2022-0-00964)
+- English : "This research was supported by the MIST(Ministry of Science, ICT),
+Korea, under the National Program for Excellence in SW),
+supervised by the IITP(Institute of Information & communications Technology Planning & Evaluation)
+in 2022"(2022-0-00964)
+
 """
 #  Licensed to the Apache Software Foundation (ASF) under one
 #  or more contributor license agreements.  See the NOTICE file
@@ -48,7 +56,8 @@ from importlib.metadata import version
 from .services.converter_service import ConversionService, ConversionType
 
 __all__ = ["ConversionService", "ConversionType",
-           "__VERSION__", "__QISKIT_VERSION__", "__FULL_VERSION__"]
+           "__VERSION__", "__QISKIT_VERSION__", "__FULL_VERSION__",
+           "__LICENSE__", "__acknowledgement_en__", "__acknowledgement_ko__"]
 
 # parse library version
 __VERSION__ = version('qiskit-classroom-converter')
@@ -59,3 +68,12 @@ __FULL_VERSION__ = {"Qiskit": __QISKIT_VERSION__, "Lib": __VERSION__}
 """.. warning:: This version constant for document is an example. \
 For the latest version information, see gitHub release or PYPI page. \
 https://pypi.org/project/qiskit-classroom-converter/"""
+
+__LICENSE__ = "Apache License Version 2.0"
+
+__acknowledgement_en__ = '"This research was supported by the MIST(Ministry of Science, ICT), ' \
+                         'Korea, under the National Program for Excellence in SW), supervised ' \
+                         'by the IITP(Institute of Information & communications Technology Planning & Evaluation) ' \
+                         'in 2022"(2022-0-00964)'
+
+__acknowledgement_ko__ = '"본 연구는 2022년 과학기술정보통신부 및 정보통신기획평가원의 SW중심대학사업의 연구결과로 수행되었음"(2022-0-00964)'

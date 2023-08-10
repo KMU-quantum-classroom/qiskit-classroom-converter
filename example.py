@@ -21,12 +21,18 @@ from loguru import logger
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
 
-from qiskit_class_converter import ConversionService, ConversionType, __FULL_VERSION__
+from qiskit_class_converter import ConversionService, ConversionType, __FULL_VERSION__, \
+    __LICENSE__, __acknowledgement_en__
 
 warnings.filterwarnings('ignore')
 
 version = __FULL_VERSION__
 logger.info(version)
+
+LICENSE = __LICENSE__
+logger.info(LICENSE)
+
+logger.info(__acknowledgement_en__)
 
 # matrix to quantum circuit
 input_value = [

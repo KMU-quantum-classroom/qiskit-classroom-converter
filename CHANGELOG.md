@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 0.1.1 (2023-08-10)
+
+Documentation :
+- Add acknowledgement english, korean text
+
 ## 0.1.0 (2023-08-06)
 
 Features :
