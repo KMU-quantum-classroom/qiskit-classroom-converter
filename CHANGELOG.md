@@ -1,5 +1,15 @@
 # CHANGELOG.md
 
+## 0.1.2.dev (develop version)
+
+Features :
+- Add Jupyter notebook dev environment for ARM Mac user
+
+Dependencies:
+
+- Bump coverage from 7.2.7 to 7.3.0
+- Bump tox from 4.6.4 to 4.8.0
+
 ## 0.1.1 (2023-08-10)
 
 Documentation :

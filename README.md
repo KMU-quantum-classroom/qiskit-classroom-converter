@@ -88,6 +88,16 @@ or
 tox
 ```
 
+## ARM Platform
+
+Mac ARM chips users may have issues running this package.
+
+We have provided a Dockerfile, which can be used docker-compose.
+
+```shell
+docker-compose up --build
+```
+
 ## Acknowledgement
 
 - 국문 : "본 연구는 2022년 과학기술정보통신부 및 정보통신기획평가원의 SW중심대학사업의 연구결과로 수행되었음"(2022-0-00964)
