@@ -1,0 +1,6 @@
+services:
+  qiskit-classroom-converter-notebook:
+    build: .
+    platform: linux/amd64
+    ports:
+      - 8888:8888
