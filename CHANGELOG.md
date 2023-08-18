@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.1.2.dev (develop version)
+## 0.1.2.dev (develop version - not released)
 
 Features :
 - Add Jupyter notebook dev environment for ARM Mac user
