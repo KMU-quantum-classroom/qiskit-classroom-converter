@@ -1,14 +1,20 @@
 # CHANGELOG.md
 
-## 0.1.2.dev (develop version - not released)
+## 0.2.0.dev (develop version - not released)
 
 Features :
+- Add the feature to return gate names used when converting from qc to matrix.
+  - order is always preserved.
 - Add Jupyter notebook dev environment for ARM Mac user
 
 Dependencies:
 
 - Bump coverage from 7.2.7 to 7.3.0
 - Bump tox from 4.6.4 to 4.8.0
+
+Remove :
+- BRA_KET_TO_MATRIX was removed in 0.2.0.
+
 
 ## 0.1.1 (2023-08-10)
 
