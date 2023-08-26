@@ -57,6 +57,15 @@ quantum_circuit.append(result, [0, 1])
 pip install qiskit-classroom-converter
 ```
 
+## Docker Pull & Run
+
+Alternative installation with docker image.
+
+```shell
+docker pull ghcr.io/kmu-quantum-classroom/qiskit-classroom-converter
+docker run -p 8888:8888 ghcr.io/kmu-quantum-classroom/qiskit-classroom-converter
+```
+
 ## Dependencies
 
 * qiskit
