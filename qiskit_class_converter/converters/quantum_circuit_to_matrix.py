@@ -33,7 +33,9 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
 
     def actual_convert_action(self):
         self.logger.debug("quantum circuit to matrix")
-        matrix_list = {"gate": []}
+        gate_list = [self.input_value.data[i][0].name
+                     for i in range(len(self.input_value.data))]
+        matrix_list = {"gate": [], "name": gate_list}
         # type validate
         if isinstance(self.input_value, (List, QuantumCircuit)):
             dag = self.qiskit.converters.circuit_to_dag(self.input_value)
@@ -44,7 +46,7 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
             matrix_list["gate"].append(self.qiskit.quantum_info.Operator(circuit).to_matrix())
         matrix_list["result"] = self.qiskit.quantum_info.Operator(self.input_value).to_matrix()
         if self.option.get("print", False) == "raw":
-            latex_source_list = {"gate": []}
+            latex_source_list = {"gate": [], "name": gate_list}
             for each_matrix in matrix_list["gate"]:
                 latex_source_list["gate"].append(
                     array_to_latex(array=np.array(each_matrix), source=True))

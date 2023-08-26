@@ -85,10 +85,6 @@ from qiskit_class_converter import ConversionService
 sample_converter = ConversionService(conversion_type="STR_TO_BRA_KET")
 sample_converter.convert(input_value="|01>")
 ```"""
-    BRA_KET_TO_MATRIX = StringToBraketNotationConverter
-    """.. warning:: BRA_KET_TO_MATRIX was changed to STR_TO_BRA_KET and deprecated. \
-    This naming will be removed in 0.2 and later."""
-
 
 class ConversionService:  # pylint: disable=too-few-public-methods
     """

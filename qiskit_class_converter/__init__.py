@@ -81,6 +81,7 @@ https://pypi.org/project/qiskit-classroom-converter/"""
 
 __LICENSE__ = "Apache License Version 2.0"
 
+# pylint: disable=line-too-long
 __acknowledgement_en__ = '"This research was supported by the MIST(Ministry of Science, ICT), ' \
                          'Korea, under the National Program for Excellence in SW), supervised ' \
                          'by the IITP(Institute of Information & communications Technology Planning & Evaluation) ' \

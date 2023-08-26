@@ -61,6 +61,7 @@ sample_converter = ConversionService(conversion_type="QC_TO_MATRIX")
 result = sample_converter.convert(input_value=quantum_circuit)
 for gate in result["gate"]:
     logger.info("\n" + str(gate.astype(int)))
+logger.info("list: " + str(result["name"]))
 logger.info("\n" + str(result["result"].astype(int)))
 
 # quantum circuit to matrix (for print: raw option)
