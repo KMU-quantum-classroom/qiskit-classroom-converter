@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.2.0
+## 0.2.0 (2023-08-26)
 
 Features :
 - Add the feature to return gate names used when converting from qc to matrix.
