@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.2.0.dev (develop version - not released)
+## 0.2.0
 
 Features :
 - Add the feature to return gate names used when converting from qc to matrix.
@@ -10,7 +10,8 @@ Features :
 Dependencies:
 
 - Bump coverage from 7.2.7 to 7.3.0
-- Bump tox from 4.6.4 to 4.8.0
+- Bump tox from 4.6.4 to 4.10.0
+- Bump qiskit from 0.44.0 to 0.44.1
 
 Remove :
 - BRA_KET_TO_MATRIX was removed in 0.2.0.

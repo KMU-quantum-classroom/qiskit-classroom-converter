@@ -1,3 +1,6 @@
+# This dockerfile only supports local installation;
+# ghcr.io uploads are supported in a separate repository.
+# https://github.com/KMU-quantum-classroom/docker-registry
 FROM jupyter/minimal-notebook:python-3.11
 
 LABEL maintainer="minwook shin <minwook0106@gmail.com>"
