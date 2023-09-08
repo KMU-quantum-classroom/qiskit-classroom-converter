@@ -1,5 +1,16 @@
 # CHANGELOG.md
 
+## 0.2.1 (develop version)
+
+Dependencies:
+
+- Bump ipython from 8.14.0 to 8.15.0
+- Bump notebook from 7.0.2 to 7.0.3
+- Bump loguru from 0.7.0 to 0.7.1
+- Bump build from 0.10.0 to 1.0.3
+- Bump tox from 4.10.0 to 4.11.2
+- Bump coverage from 7.3.0 to 7.3.1
+
 ## 0.2.0 (2023-08-26)
 
 Features :
