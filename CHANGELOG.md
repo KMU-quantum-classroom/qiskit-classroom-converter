@@ -1,6 +1,12 @@
 # CHANGELOG.md
 
-## 0.2.1 (develop version)
+## 0.3.0 (2023-09-12)
+
+Features :
+
+- Changed to return gate names per circuit layer when converting to matrix.
+  - case : If a lot of qubit and layer 0 has x gate and cx gate.
+  - ```[(0, ['x', 'cx'])]```
 
 Dependencies:
 
@@ -8,8 +14,9 @@ Dependencies:
 - Bump notebook from 7.0.2 to 7.0.3
 - Bump loguru from 0.7.0 to 0.7.1
 - Bump build from 0.10.0 to 1.0.3
-- Bump tox from 4.10.0 to 4.11.2
+- Bump tox from 4.10.0 to 4.11.3
 - Bump coverage from 7.3.0 to 7.3.1
+- Bump pdoc from 14.0.0 to 14.1.0
 
 ## 0.2.0 (2023-08-26)
 

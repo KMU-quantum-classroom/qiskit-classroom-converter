@@ -33,20 +33,21 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
 
     def actual_convert_action(self):
         self.logger.debug("quantum circuit to matrix")
-        gate_list = [self.input_value.data[i][0].name
-                     for i in range(len(self.input_value.data))]
-        matrix_list = {"gate": [], "name": gate_list}
+        matrix_list = {"gate": [], "name": []}
         # type validate
         if isinstance(self.input_value, (List, QuantumCircuit)):
             dag = self.qiskit.converters.circuit_to_dag(self.input_value)
         else:
             raise TypeError("QuantumCircuit is required.")
+        layer_index = 0
         for layer in dag.layers():
             circuit = self.qiskit.converters.dag_to_circuit(layer['graph'])
             matrix_list["gate"].append(self.qiskit.quantum_info.Operator(circuit).to_matrix())
+            matrix_list["name"].append((layer_index, [_inst[0].name for _inst in circuit.data]))
+            layer_index += 1
         matrix_list["result"] = self.qiskit.quantum_info.Operator(self.input_value).to_matrix()
         if self.option.get("print", False) == "raw":
-            latex_source_list = {"gate": [], "name": gate_list}
+            latex_source_list = {"gate": [], "name": matrix_list["name"]}
             for each_matrix in matrix_list["gate"]:
                 latex_source_list["gate"].append(
                     array_to_latex(array=np.array(each_matrix), source=True))
