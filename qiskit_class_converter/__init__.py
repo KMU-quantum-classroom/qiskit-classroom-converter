@@ -35,6 +35,13 @@ We have provided a Dockerfile, which can be used docker-compose.
 docker-compose up --build
 ```
 
+or use a Docker Image.
+
+```shell
+$ docker pull ghcr.io/kmu-quantum-classroom/qiskit-classroom-converter
+$ docker run -p 8888:8888 ghcr.io/kmu-quantum-classroom/qiskit-classroom-converter
+```
+
 # Acknowledgement
 
 - 국문 : "본 연구는 2022년 과학기술정보통신부 및 정보통신기획평가원의 SW중심대학사업의 연구결과로 수행되었음"(2022-0-00964)
