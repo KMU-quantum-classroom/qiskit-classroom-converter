@@ -2,30 +2,97 @@
     {
         "__comment__": "preset matrix gate for 1-bit circuit",
         "qubits":1,
+        "dimension":2,
         "matrices":[
             {
                 "type" : "Identity",
                 "symbol" : "I",
-                "matrix" : [[1, 0], [0, 1]]
+                "matrix" : [[1, 0], 
+                            [0, 1]]
             },
             {
                 "type" : "Pauli-X",
                 "symbol" : "X",
-                "matrix" : [[0, 1], [1, 0]]
+                "matrix" : [[0, 1], 
+                            [1, 0]]
             },
             {
                 "type" : "Hadamard",
                 "symbol" : "H",
-                "matrix" : [[1, 0], [0, 1]]
+                "matrix" : [[1, 0],
+                            [0, 1]]
             }
         ]
     },
     {
         "__comment__": "preset matrix for 2-bit circuit",
         "qubits":2,
+        "dimension":4,
         "matrices":[
-            {
-            }
+                {
+                    "type" : "Identity - Identity kronecker product",
+                    "symbol" : ["I", "I"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 1, 0, 0], 
+                                [0, 0, 1, 0], 
+                                [0, 0, 0, 1]]
+                },
+                {
+                    "type" : "Pauli-X - Identity kronecker product",
+                    "symbol" : ["X", "I"],
+                    "matrix" : [[0, 0, 1, 0],
+                                [0, 0, 0, 1], 
+                                [1, 0, 0, 0], 
+                                [0, 1, 0, 0]]
+                },
+                {
+                    "type" : "Pauli-X - Pauli-X kronecker product",
+                    "symbol" : ["X", "X"],
+                    "matrix" : [[0, 0, 0, 1],
+                                [0, 0, 1, 0], 
+                                [0, 1, 0, 0], 
+                                [1, 0, 0, 0]]
+                },
+                {
+                    "type" : "Identity - Hadamard kronecker product",
+                    "symbol" : ["I", "H"],
+                    "matrix" : [[0.707, 0.707, 0, 0],
+                                [0.707, -0.707, 0, 0], 
+                                [0, 0, 0.707, 0.707], 
+                                [0, 0, 0.707, -0.707]]
+                },
+                {
+                    "type" : "Hadamard - Identity kronecker product",
+                    "symbol" : ["H", "I"],
+                    "matrix" : [[0.707, 0, 0.707, 0],
+                                [0, 0.707, 0, 0.707], 
+                                [0.707, 0, -0.707, 0], 
+                                [0, 0.707, 0, -0.707]]
+                },
+                {
+                    "type" : "Hadamard - Hadamard kronecker product",
+                    "symbol" : ["H", "H"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 1, 0, 0], 
+                                [0, 0, 1, 0], 
+                                [0, 0, 0, 1]]
+                },
+                {
+                    "type" : "Hadamard - Pauli-X kronecker product",
+                    "symbol" : ["H", "X"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 1, 0, 0], 
+                                [0, 0, 1, 0], 
+                                [0, 0, 0, 1]]
+                },
+                {
+                    "type" : "Pauli-X - Hadamard kronecker product",
+                    "symbol" : ["X", "H"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 1, 0, 0], 
+                                [0, 0, 1, 0], 
+                                [0, 0, 0, 1]]
+                }
         ]
     }
-  ]
+]
