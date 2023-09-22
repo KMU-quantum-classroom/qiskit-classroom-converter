@@ -1,0 +1,31 @@
+[
+    {
+        "__comment__": "preset matrix gate for 1-bit circuit",
+        "qubits":1,
+        "matrices":[
+            {
+                "type" : "Identity",
+                "symbol" : "I",
+                "matrix" : [[1, 0], [0, 1]]
+            },
+            {
+                "type" : "Pauli-X",
+                "symbol" : "X",
+                "matrix" : [[0, 1], [1, 0]]
+            },
+            {
+                "type" : "Hadamard",
+                "symbol" : "H",
+                "matrix" : [[1, 0], [0, 1]]
+            }
+        ]
+    },
+    {
+        "__comment__": "preset matrix for 2-bit circuit",
+        "qubits":2,
+        "matrices":[
+            {
+            }
+        ]
+    }
+  ]
