@@ -6,19 +6,19 @@
         "matrices":[
             {
                 "type" : "Identity",
-                "symbol" : "I",
+                "symbol" : ["I"],
                 "matrix" : [[1, 0], 
                             [0, 1]]
             },
             {
                 "type" : "Pauli-X",
-                "symbol" : "X",
+                "symbol" : ["X"],
                 "matrix" : [[0, 1], 
                             [1, 0]]
             },
             {
                 "type" : "Hadamard",
-                "symbol" : "H",
+                "symbol" : ["H"],
                 "matrix" : [[1, 0],
                             [0, 1]]
             }
@@ -92,6 +92,22 @@
                                 [0, 0, 0.707, -0.707], 
                                 [0.707, 0.707, 0, 0], 
                                 [0.707, -0.707, 0, 0]]
+                },
+                {
+                    "type" : "Controlled X gate - q1 controlled",
+                    "symbol" : ["CX"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 1, 0, 0], 
+                                [0, 0, 0, 1], 
+                                [0, 0, 1, 0]]
+                },
+                {
+                    "type" : "Controlled X gate - q0 controlled",
+                    "symbol" : ["CX"],
+                    "matrix" : [[1, 0, 0, 0],
+                                [0, 0, 0, 1], 
+                                [0, 0, 1, 0], 
+                                [0, 1, 0, 0]]
                 }
         ]
     }
