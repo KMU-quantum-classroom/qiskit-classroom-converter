@@ -46,10 +46,10 @@
             {
                 "type" : "Hadamard - Hadamard kronecker product",
                 "symbol" : ["H", "H"],
-                "matrix" : [[1, 0, 0, 0],
-                            [0, 1, 0, 0], 
-                            [0, 0, 1, 0], 
-                            [0, 0, 0, 1]]
+                "matrix" : [[0.5, 0.5, 0.5, 0.5],
+                            [0.5, -0.5, 0.5, -0.5], 
+                            [0.5, 0.5, -0.5, -0.5], 
+                            [0.5, -0.5, -0.5, 0.5]]
             },
             {
                 "type" : "Hadamard - Pauli-X kronecker product",
