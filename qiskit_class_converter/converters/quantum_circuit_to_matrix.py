@@ -43,7 +43,7 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
         for layer in dag.layers():
             circuit = self.qiskit.converters.dag_to_circuit(layer['graph'])
             matrix_list["gate"].append(self.qiskit.quantum_info.Operator(circuit).to_matrix())
-            gate_name = ""
+            gates = []
             for _inst in circuit.data:
                 if _inst[0].name == "cx":
                     gate_name = (_inst[0].name +
@@ -54,7 +54,8 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
                                  ", q" + str(_inst.qubits[2].index) + "}")
                 else:
                     gate_name = _inst[0].name
-            matrix_list["name"].append((layer_index, gate_name))
+                gates.append(gate_name)
+            matrix_list["name"].append((layer_index, gates))
             layer_index += 1
         matrix_list["result"] = self.qiskit.quantum_info.Operator(self.input_value).to_matrix()
         if self.option.get("print", False) == "raw":
