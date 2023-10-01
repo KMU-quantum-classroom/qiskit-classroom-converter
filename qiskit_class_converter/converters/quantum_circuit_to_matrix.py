@@ -36,6 +36,7 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
         matrix_list = {"gate": [], "name": []}
         # type validate
         if isinstance(self.input_value, (List, QuantumCircuit)):
+            self.input_value = self.input_value.remove_final_measurements(inplace=False)
             dag = self.qiskit.converters.circuit_to_dag(self.input_value)
         else:
             raise TypeError("QuantumCircuit is required.")
