@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## 0.4.0 (2023-10-05)
+
+Features :
+
+* Add feature to show the direction of gate (X, CX, CCX, etc...)
+* Remove final measurements on circuit
+* Add Identity gate to name list
+* Change gate name to be uppercase
+
 ## 0.3.0 (2023-09-13)
 
 Features :
