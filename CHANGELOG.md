@@ -9,6 +9,13 @@ Features :
 * Add Identity gate to name list
 * Change gate name to be uppercase
 
+Dependencies:
+
+- Bump ipython from 8.15.0 to 8.16.0
+- Bump numpy from 1.25.2 to 1.26.0 
+- Bump notebook from 7.0.3 to 7.0.4
+- Bump pylint from 2.17.5 to 2.17.7
+
 ## 0.3.0 (2023-09-13)
 
 Features :
