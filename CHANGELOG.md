@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.4.0 (2023-10-05)
+## 0.4.0 (2023-10-04)
 
 Features :
 
@@ -11,10 +11,11 @@ Features :
 
 Dependencies:
 
-- Bump ipython from 8.15.0 to 8.16.0
+- Bump ipython from 8.15.0 to 8.16.1
 - Bump numpy from 1.25.2 to 1.26.0 
 - Bump notebook from 7.0.3 to 7.0.4
-- Bump pylint from 2.17.5 to 2.17.7
+- Bump pylint from 2.17.5 to 3.0.0
+- Bump coverage from 7.3.1 to 7.3.2
 
 ## 0.3.0 (2023-09-13)
 
