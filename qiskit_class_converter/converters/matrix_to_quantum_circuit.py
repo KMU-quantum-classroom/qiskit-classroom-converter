@@ -21,7 +21,8 @@ Matrix to Quantum Circuit Converter
 from typing import List
 
 import numpy as np
-
+import json
+import os
 from qiskit_class_converter.converters.base import BaseConverter
 
 
@@ -29,6 +30,25 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
     """
     Converter class
     """
+
+    def load_matrix_preset(self):
+        """
+        load matrix preset
+        """
+
+        mat_1bit = None
+        mat_2bit = None
+        with open('./qiskit_class_converter/converters/preset/matrices_1bit.json',
+                   encoding='utf-8') as file:
+            mat_1bit = json.load(file)
+
+        with open('./qiskit_class_converter/converters/preset/matrices_2bit.json',
+                   encoding='utf-8') as file:
+            mat_2bit = json.load(file)
+
+        return mat_1bit, mat_2bit
+
+    # matrix 탐색 -> tree 형으로 완전탐색을 기본으로 감.
 
     def actual_convert_action(self):
         self.logger.debug("matrix to quantum circuit")
