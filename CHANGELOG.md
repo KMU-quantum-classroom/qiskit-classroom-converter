@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## 0.4.1 (2023-10-12)
+
+This is small patch release, updating only the Qiskit Package.
+
+Dependencies:
+
+- Bump qiskit from 0.44.1 to 0.44.2
+- Bump pylint from 3.0.0 to 3.0.1
+
 ## 0.4.0 (2023-10-04)
 
 Features :
