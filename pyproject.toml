@@ -26,7 +26,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "qiskit==0.44.1",
+    "qiskit==0.44.2",
     "qiskit-aer==0.12.2",
     "loguru==0.7.2",
     "sympy==1.12",
