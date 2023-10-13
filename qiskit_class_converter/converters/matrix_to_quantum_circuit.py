@@ -48,12 +48,35 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
 
         return mat_1bit, mat_2bit
 
+    # 재귀 알고리즘 or 반복문 사용 -> high load
+    def make_circuit(self, target, dimension) :
+        """
+        make_circuit from assumed circuit list -> todo
+        """
+        return 0
+
     # matrix 탐색 -> tree 형으로 완전탐색을 기본으로 감.
+    def measure_circuit(self, target) :
+        """
+        assuming circuit -> todo
+        """
+
+        mat_1bit, mat_2bit = self.load_matrix_preset()
+        target_dimemsion = None
+        if isinstance(target, List):
+            target_dimemsion = int(np.sqrt(len(target)))
+        elif isinstance(target, np.ndarray):
+            target_dimemsion = target.ndim
+
+        self.logger.debug(target_dimemsion)
+
+        return 0
 
     def actual_convert_action(self):
         self.logger.debug("matrix to quantum circuit")
         # type validate
         if isinstance(self.input_value, (List, np.ndarray)):
+            self.measure_circuit(self.input_value)
             gate = self.qiskit.extensions.UnitaryGate(self.input_value)
         else:
             raise TypeError("List or np.ndarray is required.")
