@@ -60,15 +60,25 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
         """
         assuming circuit -> todo
         """
-
-        mat_1bit, mat_2bit = self.load_matrix_preset()
-        target_dimemsion = None
-        if isinstance(target, List):
-            target_dimemsion = int(np.sqrt(len(target)))
+        #get matrix dimension -> checking dimension is too large
+        target_dimention = None
+        if isinstance(target, List) :
+            target_dimention = int(len(target))
         elif isinstance(target, np.ndarray):
-            target_dimemsion = target.ndim
+            target_dimention = target.ndim
 
-        self.logger.debug(target_dimemsion)
+        self.logger.debug(target_dimention)
+
+        #checking dimension
+        #2, 4, 8 dimension is only accepted dimension
+        if target_dimention > 8 :
+            raise ValueError("dimension is too large please input ")
+        if target_dimention % 2 != 0 and target_dimention == 6:
+            raise ValueError("invalid dimension size")
+        
+        mat_1bit, mat_2bit = self.load_matrix_preset()
+
+        
 
         return 0
 
