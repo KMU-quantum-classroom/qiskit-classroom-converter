@@ -5,6 +5,10 @@ Qiskit classroom Converter
 
 https://kmu-quantum-classroom.github.io/qiskit-classroom-converter/qiskit_class_converter.html
 
+## Official USER Guide
+
+https://kmu-quantum-classroom.github.io/documents/overview.html
+
 ## Support convert method
 
 * quantum circuit to bra-ket notation

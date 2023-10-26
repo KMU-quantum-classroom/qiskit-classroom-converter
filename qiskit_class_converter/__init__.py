@@ -3,6 +3,10 @@
 
 Convert quantum circuits, matrices, and bra-ket strings.
 
+# Official USER Guide
+
+https://kmu-quantum-classroom.github.io/documents/overview.html
+
 # How to Install
 
 ```
