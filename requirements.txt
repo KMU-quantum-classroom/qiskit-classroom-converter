@@ -1,5 +1,5 @@
 qiskit==0.45.0
-qiskit-aer==0.12.2
+qiskit-aer==0.13.0
 loguru==0.7.2
 sympy==1.12
 antlr4-python3-runtime==4.11
