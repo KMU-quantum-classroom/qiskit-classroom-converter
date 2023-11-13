@@ -1,5 +1,24 @@
 # CHANGELOG.md
 
+## 0.4.2 (2023-11-13)
+
+This is Qiskit patch release, updating the qiskit and qiskit-aer Package.
+
+Qiskit Dependencies:
+
+- Bump qiskit from 0.44.2 to 0.45.0 
+  - all unparametrized gates in the Qiskit standard circuit library are now singletons.
+  - qiskit.extensions will be fully deprecated in a future release, moved to the circuit library.
+- Bump qiskit-aer from 0.12.2 to 0.13.0
+
+Other Dependencies:
+
+- Bump ipython from 8.16.1 to 8.17.2
+- Bump notebook from 7.0.4 to 7.0.6 
+- Bump numpy from 1.26.0 to 1.26.1
+- Bump pylint from 3.0.1 to 3.0.2
+
+
 ## 0.4.1 (2023-10-12)
 
 This is small patch release, updating only the Qiskit Package.

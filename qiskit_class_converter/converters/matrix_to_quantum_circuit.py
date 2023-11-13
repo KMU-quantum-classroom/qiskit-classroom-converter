@@ -34,7 +34,7 @@ class MatrixToQuantumCircuitConverter(BaseConverter):
         self.logger.debug("matrix to quantum circuit")
         # type validate
         if isinstance(self.input_value, (List, np.ndarray)):
-            gate = self.qiskit.extensions.UnitaryGate(self.input_value)
+            gate = self.qiskit.circuit.library.UnitaryGate(self.input_value).to_mutable()
         else:
             raise TypeError("List or np.ndarray is required.")
         # parse by unitary circuit. can't describe what circuit is.
