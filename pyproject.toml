@@ -27,7 +27,7 @@ classifiers = [
 ]
 dependencies = [
     "qiskit==0.45.1",
-    "qiskit-aer==0.13.0",
+    "qiskit-aer==0.13.1",
     "loguru==0.7.2",
     "sympy==1.12",
     "antlr4-python3-runtime==4.11",
