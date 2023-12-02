@@ -1,5 +1,19 @@
 # CHANGELOG.md
 
+## 0.4.3 (2023-12-02)
+
+Qiskit Dependencies:
+
+- Bump qiskit from 0.45.0 to 0.45.1
+- Bump qiskit-aer from 0.13.0 to 0.13.1
+
+Other Dependencies:
+
+- Bump ipython from 8.17.2 to 8.18.1 
+- Bump numpy from 1.26.1 to 1.26.2 
+- Bump tox from 4.11.3 to 4.11.4 
+
+
 ## 0.4.2 (2023-11-13)
 
 This is Qiskit patch release, updating the qiskit and qiskit-aer Package.
