@@ -32,7 +32,7 @@ dependencies = [
     "sympy==1.12",
     "antlr4-python3-runtime==4.11",
     "ipython==8.18.1",
-    "numpy==1.26.2"
+    "numpy==1.26.3"
 ]
 
 [project.optional-dependencies]
