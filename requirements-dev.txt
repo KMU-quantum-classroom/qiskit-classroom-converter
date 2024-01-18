@@ -2,5 +2,5 @@ coverage==7.3.2
 pylint==3.0.2
 tox==4.11.4
 build==1.0.3
-pdoc==14.1.0
+pdoc==14.4.0
 notebook==7.0.6
