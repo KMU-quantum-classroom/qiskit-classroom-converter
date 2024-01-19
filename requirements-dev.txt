@@ -3,4 +3,4 @@ pylint==3.0.2
 tox==4.11.4
 build==1.0.3
 pdoc==14.1.0
-notebook==7.0.6
+notebook==7.0.7
