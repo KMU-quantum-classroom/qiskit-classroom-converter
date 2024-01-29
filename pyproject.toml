@@ -37,7 +37,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "coverage==7.3.2",
+    "coverage==7.4.1",
     "pylint==3.0.2",
     "tox==4.11.4",
     "build==1.0.3",
