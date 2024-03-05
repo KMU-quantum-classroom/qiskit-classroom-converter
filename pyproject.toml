@@ -39,7 +39,7 @@ dependencies = [
 dev = [
     "coverage==7.4.3",
     "pylint==3.1.0",
-    "tox==4.11.4",
+    "tox==4.13.0",
     "build==1.0.3",
     "pdoc==14.4.0",
     "notebook==7.1.1"
