@@ -64,30 +64,12 @@ class QuantumCircuitToMatrixConverter(BaseConverter):
                                                       "gate_qubits": []}
             for _inst in circuit.data:
                 _inst_upper_name = _inst[0].name.upper()
-                if _inst[0].num_qubits == 2:
-                    gate_name = (_inst_upper_name +
-                                 "_{q" + str(_inst.qubits[0].index) +
-                                 ", q" + str(_inst.qubits[1].index) + "}")
-                    self.__programmable_variable_per_qubit["gate_qubits"].append(
-                        {"name": gate_name,
-                         "qubit": [_inst.qubits[0].index, _inst.qubits[1].index]}
-                    )
-                elif _inst[0].num_qubits == 3:
-                    gate_name = (_inst_upper_name +
-                                 "_{q" + str(_inst.qubits[0].index) +
-                                 ", q" + str(_inst.qubits[1].index) +
-                                 ", q" + str(_inst.qubits[2].index) + "}")
-                    self.__programmable_variable_per_qubit["gate_qubits"].append(
-                        {"name": gate_name,
-                         "qubit": [_inst.qubits[0].index,
-                                   _inst.qubits[1].index,
-                                   _inst.qubits[2].index]}
-                    )
-                else:
-                    gate_name = _inst_upper_name + "_{q" + str(_inst.qubits[0].index) + "}"
-                    self.__programmable_variable_per_qubit["gate_qubits"].append(
-                        {"name": gate_name, "qubit": [_inst.qubits[0].index]}
-                    )
+                qubit_indices = [circuit.find_bit(qubit)[0] for qubit in _inst[1]]
+                gate_name = (_inst_upper_name +
+                             "_{" + ", ".join(f"q{i}" for i in qubit_indices) + "}")
+                self.__programmable_variable_per_qubit["gate_qubits"].append(
+                    {"name": gate_name, "qubit": qubit_indices}
+                )
             matrix_list["name"].append((layer_index, self.insert_i_gate()))
             layer_index += 1
         matrix_list["result"] = self.qiskit.quantum_info.Operator(self.input_value).to_matrix()

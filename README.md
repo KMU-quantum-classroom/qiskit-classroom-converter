@@ -1,6 +1,9 @@
 # qiskit-classroom-converter
 Qiskit classroom Converter
 
+> 0.5.0 (2024-03-06) : The Version has been updated to be compatible with **Qiskit 1.0.0** and **Python 3.12**.
+
+
 ## Documents
 
 https://kmu-quantum-classroom.github.io/qiskit-classroom-converter/qiskit_class_converter.html
