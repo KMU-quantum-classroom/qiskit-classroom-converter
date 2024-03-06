@@ -1,5 +1,33 @@
 # CHANGELOG.md
 
+## 0.5.0 (2024-03-06)
+
+The Version has been updated to be compatible with **Qiskit 1.0.0** and **Python 3.12**.
+
+Qiskit Dependencies:
+
+- **Bump qiskit from 0.45.1 to 1.0.1**
+  - changes in Qiskit 1.0.0
+  - read the release notes for more information
+    - https://docs.quantum.ibm.com/api/qiskit/release-notes/1.0
+- Bump qiskit-aer from 0.13.1 to 0.13.3
+
+Other Dependencies:
+
+- Bump numpy from 1.26.2 to 1.26.4
+- Bump notebook from 7.0.6 to 7.1.1
+- Bump pdoc from 14.1.0 to 14.4.0
+- Bump pylint from 3.0.2 to 3.1.0 
+- Bump coverage from 7.3.2 to 7.4.3
+
+Changes:
+
+- Updated the QuantumCircuitToMatrixConverter class to be compatible with Qiskit 1.0.0. 
+  - The Bit class in Qiskit 1.0.0 no longer has register and index attributes. 
+  - The actual_convert_action method of the QuantumCircuitToMatrixConverter class has been updated to use QuantumCircuit.find_bit() instead of directly accessing the index attribute of a Bit object.
+- optimized the code to be compatible with qiskit 1.0.0
+- added unittest to be compatible with python 3.12
+
 ## 0.4.3 (2023-12-02)
 
 Qiskit Dependencies:
