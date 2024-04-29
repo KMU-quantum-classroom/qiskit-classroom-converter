@@ -31,7 +31,7 @@ dependencies = [
     "loguru==0.7.2",
     "sympy==1.12",
     "antlr4-python3-runtime==4.11",
-    "ipython==8.18.1",
+    "ipython==8.24.0",
     "numpy==1.26.4"
 ]
 
