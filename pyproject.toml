@@ -13,7 +13,7 @@ exclude = ['qiskit_class_converter*tests']
 
 [project]
 name = "qiskit-classroom-converter"
-version = "0.5.0"
+version = "0.5.1"
 authors = [
     { name = "KMU-quantum-classroom" },
 ]
@@ -26,8 +26,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "qiskit==1.0.1",
-    "qiskit-aer==0.13.3",
+    "qiskit==1.1.0",
+    "qiskit-aer==0.14.2",
     "loguru==0.7.2",
     "sympy==1.12",
     "antlr4-python3-runtime==4.11",
@@ -37,12 +37,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "coverage==7.4.3",
-    "pylint==3.1.0",
+    "coverage==7.5.3",
+    "pylint==3.2.2",
     "tox==4.11.4",
     "build==1.0.3",
     "pdoc==14.4.0",
-    "notebook==7.1.1"
+    "notebook==7.1.3"
 ]
 
 [project.urls]
