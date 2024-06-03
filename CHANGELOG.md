@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## 0.5.1 (2024-06-03)
+
+### dependencies
+
+- Bump qiskit from 1.0.1 to 1.1.0
+- Bump qiskit-aer from 0.13.3 to 0.14.2
+- and other development dependencies
+
 ## 0.5.0 (2024-03-06)
 
 The Version has been updated to be compatible with **Qiskit 1.0.0** and **Python 3.12**.
