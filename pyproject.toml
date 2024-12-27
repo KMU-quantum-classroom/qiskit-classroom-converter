@@ -42,7 +42,7 @@ dev = [
     "tox==4.11.4",
     "build==1.0.3",
     "pdoc==14.6.1",
-    "notebook==7.1.3"
+    "notebook==7.3.2"
 ]
 
 [project.urls]
