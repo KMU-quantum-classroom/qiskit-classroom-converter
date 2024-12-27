@@ -1,7 +1,7 @@
 qiskit==1.1.0
 qiskit-aer==0.14.2
 loguru==0.7.2
-sympy==1.13.2
+sympy==1.13.3
 antlr4-python3-runtime==4.11
 ipython==8.18.1
 numpy==1.26.4
