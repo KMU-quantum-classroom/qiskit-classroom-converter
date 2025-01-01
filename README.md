@@ -1,6 +1,9 @@
 # qiskit-classroom-converter
 Qiskit classroom Converter
 
+## Version
+
+> 0.6.0 (2025-01-01) : The Version has been updated to be compatible with **Qiskit 1.3.1** and **Python 3.13**.
 > 0.5.0 (2024-03-06) : The Version has been updated to be compatible with **Qiskit 1.0.0** and **Python 3.12**.
 
 
