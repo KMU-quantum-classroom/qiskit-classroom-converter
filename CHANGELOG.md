@@ -1,5 +1,18 @@
 # CHANGELOG.md
 
+## 0.6.0 (2025-01-01)
+
+happy new year!
+
+The Version has been updated to be compatible with **Qiskit 1.3.1** and **Python 3.13**.
+and drop support for Python 3.9 due to changes support for our dependency.
+
+### major dependencies
+
+- Bump qiskit from 1.1.0 to 1.3.1
+- Bump qiskit-aer from 0.14.2 to 0.15.1
+
+
 ## 0.5.1 (2024-06-03)
 
 ### dependencies
