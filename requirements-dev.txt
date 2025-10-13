@@ -1,5 +1,5 @@
 coverage==7.6.10
-pylint==3.3.3
+pylint==4.0.0
 tox==4.23.2
 build==1.2.2.post1
 pdoc==15.0.1
